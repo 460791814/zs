@@ -73,7 +73,7 @@ namespace DAL
 			strSql.Append("update tb_province set ");
 			if(!String.IsNullOrEmpty(model.provincename))
 			{
-				setSql.Append( "provincename=@provincename");
+				setSql.Append( "provincename=@provincename,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -162,6 +162,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_province GetInfo(tb_province model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_province");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_province>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

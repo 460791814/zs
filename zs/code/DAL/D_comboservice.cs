@@ -71,21 +71,21 @@ namespace DAL
 			StringBuilder strSql=new StringBuilder();
 			StringBuilder setSql=new StringBuilder();
 			strSql.Append("update tb_comboservice set ");
-			if(model.comboid!=null)
+			if(!String.IsNullOrEmpty(model.comboid))
 			{
-				setSql.Append( "comboid=@comboid");
+				setSql.Append( "comboid=@comboid,");
 			}
 			if(!String.IsNullOrEmpty(model.name))
 			{
-				setSql.Append( "name=@name");
+				setSql.Append( "name=@name,");
 			}
 			if(!String.IsNullOrEmpty(model.intro))
 			{
-				setSql.Append( "intro=@intro");
+				setSql.Append( "intro=@intro,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -154,7 +154,7 @@ namespace DAL
 			StringBuilder strSql=new StringBuilder();
 			StringBuilder whereSql = new StringBuilder(" where 1 = 1 ");
 			strSql.Append(" select  ROW_NUMBER() OVER(ORDER BY id desc) AS RID, * from tb_comboservice ");
-			if(model.comboid!=null)
+			if(!String.IsNullOrEmpty(model.comboid))
 			{
 				whereSql.Append( " and comboid=@comboid");
 			}
@@ -186,6 +186,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_comboservice GetInfo(tb_comboservice model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_comboservice");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_comboservice>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

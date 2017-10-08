@@ -1,5 +1,12 @@
 using System;
-namespace 
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using DAL;
+using Model;
+using Comp;
+namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
 	/// ʡ
@@ -13,7 +20,7 @@ namespace
 		public ActionResult provinceList(tb_province model)
 		{
 			int count = 0;
-			ViewBag.list = dtb_province.GetList(model, ref count);
+			ViewBag.list = dprovince.GetList(model, ref count);
 			ViewBag.page = Utils.ShowPage(count, model.PageSize, model.PageIndex, 5);
 			return View();
 		}
@@ -25,13 +32,14 @@ namespace
 		{
 			if (model == null)
 			{
-				return false
+				return false;
 			}
-			if (model.id >0)
+			if(!String.IsNullOrEmpty(model.id))
 			{
 				 return dprovince.Update(model);
 			}
-			return dprovince.Add(model)>0;
+			model.id = Guid.NewGuid().ToString("N");
+			return dprovince.Add(model);
 		}
 
 		/// <summary>
@@ -47,8 +55,8 @@ namespace
 		/// </summary>
 		public ActionResult provinceInfo(tb_province model)
 		{
-			ViewBag.Info = dprovince.GetInfo(model);
-			return View();
+			model = dprovince.GetInfo(model);
+			return View(model??new tb_province());
 		}
 
 	}

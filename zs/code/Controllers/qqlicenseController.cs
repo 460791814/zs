@@ -1,5 +1,12 @@
 using System;
-namespace 
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using DAL;
+using Model;
+using Comp;
+namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
 	/// qq
@@ -13,7 +20,7 @@ namespace
 		public ActionResult qqlicenseList(tb_qqlicense model)
 		{
 			int count = 0;
-			ViewBag.list = dtb_qqlicense.GetList(model, ref count);
+			ViewBag.list = dqqlicense.GetList(model, ref count);
 			ViewBag.page = Utils.ShowPage(count, model.PageSize, model.PageIndex, 5);
 			return View();
 		}
@@ -25,13 +32,9 @@ namespace
 		{
 			if (model == null)
 			{
-				return false
+				return false;
 			}
-			if (model. >0)
-			{
-				 return dqqlicense.Update(model);
-			}
-			return dqqlicense.Add(model)>0;
+			return dqqlicense.Add(model);
 		}
 
 		/// <summary>
@@ -47,8 +50,8 @@ namespace
 		/// </summary>
 		public ActionResult qqlicenseInfo(tb_qqlicense model)
 		{
-			ViewBag.Info = dqqlicense.GetInfo(model);
-			return View();
+			model = dqqlicense.GetInfo(model);
+			return View(model??new tb_qqlicense());
 		}
 
 	}

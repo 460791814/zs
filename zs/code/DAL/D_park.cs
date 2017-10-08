@@ -46,9 +46,9 @@ namespace DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into tb_park(");
-			strSql.Append("id,houseid,parkname,address,parknumber,fee,isopen,addtime)");
+			strSql.Append("id,buildingid,parkname,address,parknumber,fee,isopen,addtime)");
 			strSql.Append(" values (");
-			strSql.Append("@id,@houseid,@parkname,@address,@parknumber,@fee,@isopen,@addtime)");
+			strSql.Append("@id,@buildingid,@parkname,@address,@parknumber,@fee,@isopen,@addtime)");
 			using (IDbConnection conn = DapperHelper.OpenConnection())
 			{
 				int count = conn.Execute(strSql.ToString(), model);
@@ -71,33 +71,33 @@ namespace DAL
 			StringBuilder strSql=new StringBuilder();
 			StringBuilder setSql=new StringBuilder();
 			strSql.Append("update tb_park set ");
-			if(model.houseid!=null)
+			if(model.buildingid!=null)
 			{
-				setSql.Append( "houseid=@houseid");
+				setSql.Append( "buildingid=@buildingid,");
 			}
 			if(!String.IsNullOrEmpty(model.parkname))
 			{
-				setSql.Append( "parkname=@parkname");
+				setSql.Append( "parkname=@parkname,");
 			}
 			if(!String.IsNullOrEmpty(model.address))
 			{
-				setSql.Append( "address=@address");
+				setSql.Append( "address=@address,");
 			}
 			if(model.parknumber!=null)
 			{
-				setSql.Append( "parknumber=@parknumber");
+				setSql.Append( "parknumber=@parknumber,");
 			}
 			if(!String.IsNullOrEmpty(model.fee))
 			{
-				setSql.Append( "fee=@fee");
+				setSql.Append( "fee=@fee,");
 			}
 			if(model.isopen!=null)
 			{
-				setSql.Append( "isopen=@isopen");
+				setSql.Append( "isopen=@isopen,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -170,9 +170,9 @@ namespace DAL
 			{
 				whereSql.Append( " and id=@id");
 			}
-			if(model.houseid!=null)
+			if(model.buildingid!=null)
 			{
-				whereSql.Append( " and houseid=@houseid");
+				whereSql.Append( " and buildingid=@buildingid");
 			}
 			if(!String.IsNullOrEmpty(model.parkname))
 			{
@@ -210,6 +210,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_park GetInfo(tb_park model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_park");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_park>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

@@ -73,19 +73,19 @@ namespace DAL
 			strSql.Append("update tb_meetingroomcomment set ");
 			if(model.star!=null)
 			{
-				setSql.Append( "star=@star");
+				setSql.Append( "star=@star,");
 			}
 			if(!String.IsNullOrEmpty(model.content))
 			{
-				setSql.Append( "content=@content");
+				setSql.Append( "content=@content,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			if(!String.IsNullOrEmpty(model.orderid))
 			{
-				setSql.Append( "orderid=@orderid");
+				setSql.Append( "orderid=@orderid,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -186,6 +186,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_meetingroomcomment GetInfo(tb_meetingroomcomment model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_meetingroomcomment");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_meetingroomcomment>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

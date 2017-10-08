@@ -73,11 +73,11 @@ namespace DAL
 			strSql.Append("update tb_module set ");
 			if(!String.IsNullOrEmpty(model.name))
 			{
-				setSql.Append( "name=@name");
+				setSql.Append( "name=@name,");
 			}
 			if(!String.IsNullOrEmpty(model.url))
 			{
-				setSql.Append( "url=@url");
+				setSql.Append( "url=@url,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -170,6 +170,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_module GetInfo(tb_module model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_module");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_module>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

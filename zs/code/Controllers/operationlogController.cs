@@ -1,5 +1,12 @@
 using System;
-namespace 
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using DAL;
+using Model;
+using Comp;
+namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
 	/// ²Ù×÷ÈÕÖ¾
@@ -13,7 +20,7 @@ namespace
 		public ActionResult operationlogList(tb_operationlog model)
 		{
 			int count = 0;
-			ViewBag.list = dtb_operationlog.GetList(model, ref count);
+			ViewBag.list = doperationlog.GetList(model, ref count);
 			ViewBag.page = Utils.ShowPage(count, model.PageSize, model.PageIndex, 5);
 			return View();
 		}
@@ -25,13 +32,14 @@ namespace
 		{
 			if (model == null)
 			{
-				return false
+				return false;
 			}
-			if (model.id >0)
+			if(!String.IsNullOrEmpty(model.id))
 			{
 				 return doperationlog.Update(model);
 			}
-			return doperationlog.Add(model)>0;
+			model.id = Guid.NewGuid().ToString("N");
+			return doperationlog.Add(model);
 		}
 
 		/// <summary>
@@ -47,8 +55,8 @@ namespace
 		/// </summary>
 		public ActionResult operationlogInfo(tb_operationlog model)
 		{
-			ViewBag.Info = doperationlog.GetInfo(model);
-			return View();
+			model = doperationlog.GetInfo(model);
+			return View(model??new tb_operationlog());
 		}
 
 	}

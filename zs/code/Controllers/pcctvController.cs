@@ -1,5 +1,12 @@
 using System;
-namespace 
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using DAL;
+using Model;
+using Comp;
+namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
 	/// 省市区县
@@ -13,7 +20,7 @@ namespace
 		public ActionResult pcctvList(tb_pcctv model)
 		{
 			int count = 0;
-			ViewBag.list = dtb_pcctv.GetList(model, ref count);
+			ViewBag.list = dpcctv.GetList(model, ref count);
 			ViewBag.page = Utils.ShowPage(count, model.PageSize, model.PageIndex, 5);
 			return View();
 		}
@@ -25,13 +32,14 @@ namespace
 		{
 			if (model == null)
 			{
-				return false
+				return false;
 			}
-			if (model.id >0)
+			if(!String.IsNullOrEmpty(model.id))
 			{
 				 return dpcctv.Update(model);
 			}
-			return dpcctv.Add(model)>0;
+			model.id = Guid.NewGuid().ToString("N");
+			return dpcctv.Add(model);
 		}
 
 		/// <summary>
@@ -47,8 +55,8 @@ namespace
 		/// </summary>
 		public ActionResult pcctvInfo(tb_pcctv model)
 		{
-			ViewBag.Info = dpcctv.GetInfo(model);
-			return View();
+			model = dpcctv.GetInfo(model);
+			return View(model??new tb_pcctv());
 		}
 
 	}

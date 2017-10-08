@@ -73,7 +73,7 @@ namespace DAL
 			strSql.Append("update tb_role set ");
 			if(!String.IsNullOrEmpty(model.name))
 			{
-				setSql.Append( "name=@name");
+				setSql.Append( "name=@name,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -162,6 +162,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_role GetInfo(tb_role model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_role");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_role>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

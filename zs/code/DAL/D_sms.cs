@@ -73,19 +73,19 @@ namespace DAL
 			strSql.Append("update tb_sms set ");
 			if(!String.IsNullOrEmpty(model.phonenum))
 			{
-				setSql.Append( "phonenum=@phonenum");
+				setSql.Append( "phonenum=@phonenum,");
 			}
 			if(!String.IsNullOrEmpty(model.verificationcode))
 			{
-				setSql.Append( "verificationcode=@verificationcode");
+				setSql.Append( "verificationcode=@verificationcode,");
 			}
 			if(model.senddate!=null)
 			{
-				setSql.Append( "senddate=@senddate");
+				setSql.Append( "senddate=@senddate,");
 			}
 			if(model.sendtype!=null)
 			{
-				setSql.Append( "sendtype=@sendtype");
+				setSql.Append( "sendtype=@sendtype,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -186,6 +186,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_sms GetInfo(tb_sms model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_sms");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_sms>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

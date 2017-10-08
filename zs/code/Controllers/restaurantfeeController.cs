@@ -1,5 +1,12 @@
 using System;
-namespace 
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using DAL;
+using Model;
+using Comp;
+namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
 	/// 收费标准
@@ -13,7 +20,7 @@ namespace
 		public ActionResult restaurantfeeList(tb_restaurantfee model)
 		{
 			int count = 0;
-			ViewBag.list = dtb_restaurantfee.GetList(model, ref count);
+			ViewBag.list = drestaurantfee.GetList(model, ref count);
 			ViewBag.page = Utils.ShowPage(count, model.PageSize, model.PageIndex, 5);
 			return View();
 		}
@@ -25,13 +32,14 @@ namespace
 		{
 			if (model == null)
 			{
-				return false
+				return false;
 			}
-			if (model.id >0)
+			if(!String.IsNullOrEmpty(model.id))
 			{
 				 return drestaurantfee.Update(model);
 			}
-			return drestaurantfee.Add(model)>0;
+			model.id = Guid.NewGuid().ToString("N");
+			return drestaurantfee.Add(model);
 		}
 
 		/// <summary>
@@ -47,8 +55,8 @@ namespace
 		/// </summary>
 		public ActionResult restaurantfeeInfo(tb_restaurantfee model)
 		{
-			ViewBag.Info = drestaurantfee.GetInfo(model);
-			return View();
+			model = drestaurantfee.GetInfo(model);
+			return View(model??new tb_restaurantfee());
 		}
 
 	}

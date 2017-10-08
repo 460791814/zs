@@ -333,7 +333,7 @@ namespace DbObjects.SQL2012
 			StringBuilder stringBuilder = new StringBuilder();
 			stringBuilder.Append("select [name],sysobjects.xtype type from sysobjects ");
 			stringBuilder.Append("where (xtype='U' or xtype='V' ) ");
-			stringBuilder.Append("and [name]<>'dtproperties' and [name]<>'syssegments' and [name]<>'sysconstraints' ");
+			stringBuilder.Append("and [name]<>'dtproperties' and [name]<>'syssegments' and [name]<>'sysconstraints' and [name]<>'sysdiagrams'");
 			stringBuilder.Append("order by xtype,[name]");
 			List<string> list = new List<string>();
 			using (SqlDataReader sqlDataReader = this.ExecuteReader(DbName, stringBuilder.ToString()))

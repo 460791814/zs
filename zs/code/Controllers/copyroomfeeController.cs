@@ -1,5 +1,12 @@
 using System;
-namespace 
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using DAL;
+using Model;
+using Comp;
+namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
 	/// 收费标准
@@ -13,7 +20,7 @@ namespace
 		public ActionResult copyroomfeeList(tb_copyroomfee model)
 		{
 			int count = 0;
-			ViewBag.list = dtb_copyroomfee.GetList(model, ref count);
+			ViewBag.list = dcopyroomfee.GetList(model, ref count);
 			ViewBag.page = Utils.ShowPage(count, model.PageSize, model.PageIndex, 5);
 			return View();
 		}
@@ -25,13 +32,14 @@ namespace
 		{
 			if (model == null)
 			{
-				return false
+				return false;
 			}
-			if (model.id >0)
+			if(!String.IsNullOrEmpty(model.id))
 			{
 				 return dcopyroomfee.Update(model);
 			}
-			return dcopyroomfee.Add(model)>0;
+			model.id = Guid.NewGuid().ToString("N");
+			return dcopyroomfee.Add(model);
 		}
 
 		/// <summary>
@@ -47,8 +55,8 @@ namespace
 		/// </summary>
 		public ActionResult copyroomfeeInfo(tb_copyroomfee model)
 		{
-			ViewBag.Info = dcopyroomfee.GetInfo(model);
-			return View();
+			model = dcopyroomfee.GetInfo(model);
+			return View(model??new tb_copyroomfee());
 		}
 
 	}

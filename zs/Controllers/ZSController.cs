@@ -16,6 +16,7 @@ using Utility;
 using Comp;
 using BuilderDALSQL;
 using BuilderController;
+using BuilderView;
 
 namespace zs.Controllers
 {
@@ -29,9 +30,10 @@ namespace zs.Controllers
         // GET: ZS
         public ActionResult Index()
         {
-            //CreateDal();
-            //  CreateModel();
-            CreateController();
+            // CreateDal();
+            // CreateModel();
+            //  CreateController();
+            CreateListAndInfo();
             return View();
         }
         /// <summary>
@@ -110,8 +112,58 @@ namespace zs.Controllers
                 {
                     builderController.TableDescription = tableDescRow["value"]?.ToString();
                 }
+                builderController.NameSpace = "cnooc.property.manage.Controllers";
                 builderController.BaseClass = "Controller";
                 Utils.CreateFile("/code/Controllers", actionName + "Controller.cs", builderController.CreatController());
+            }
+            return "生成成功";
+        }
+
+        public string CreateListAndInfo()
+        {
+            string listfilePath =ConfigurationManager.AppSettings["TemplateDir"] + "list.cshtml";
+            string infofilePath =ConfigurationManager.AppSettings["TemplateDir"] + "info.cshtml";
+            BuilderMvcView builderMvcView = new BuilderMvcView();
+            var tables = db.GetTableViews(dbName);
+            if (tables == null)
+            {
+                return "数据库表为空";
+            }
+            
+            foreach (var item in tables)
+            {
+                string actionName = item.Replace("tb_", "");
+                List<ColumnInfo> list = db.GetColumnInfoList(dbName, item);
+                builderMvcView.PrimaryKey = CodeCommon.GetPrimaryKey(list)?.ColumnName;
+                //移除主键
+                list.Remove(CodeCommon.GetPrimaryKey(list));
+                builderMvcView.ModelName = item;
+                builderMvcView.ActionName = actionName;
+                builderMvcView.Fieldlist = list;
+             
+                DataRow tableDescRow = db.GetTablesExProperty(dbName).Select("objname='" + item + "'").FirstOrDefault();
+                if (tableDescRow != null)
+                {
+                    builderMvcView.TableDescription = tableDescRow["value"]?.ToString();
+                }
+                //生成列表
+                string listhtml= Utils.ReadFile(listfilePath);
+                listhtml = listhtml.Replace("<#list:title#>", builderMvcView.TableDescription);
+                listhtml = listhtml.Replace("<#list:infourl#>", builderMvcView.CreateEditUrl());
+                listhtml = listhtml.Replace("<#list:table#>", builderMvcView.CreateTable());
+                Utils.CreateFile("/code/Views/" + actionName, actionName + "List.cshtml", listhtml);
+                //生成详情
+                string infohtml = Utils.ReadFile(infofilePath);
+                infohtml = infohtml.Replace("<#info:modelname#>", "Model."+item);
+                infohtml = infohtml.Replace("<#info:title#>", builderMvcView.TableDescription);
+                infohtml = infohtml.Replace("<#info:listurl#>", builderMvcView.CreateListUrl());
+
+                infohtml = infohtml.Replace("<#info:saveurl#>", builderMvcView.CreateSaveUrl());
+                infohtml = infohtml.Replace("<#info:form#>", builderMvcView.CreateInfoView());
+
+
+                Utils.CreateFile("/code/Views/" + actionName, actionName + "Info.cshtml", infohtml);
+
             }
             return "生成成功";
         }

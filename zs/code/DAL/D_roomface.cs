@@ -73,23 +73,23 @@ namespace DAL
 			strSql.Append("update tb_roomface set ");
 			if(model.roomid!=null)
 			{
-				setSql.Append( "roomid=@roomid");
+				setSql.Append( "roomid=@roomid,");
 			}
 			if(!String.IsNullOrEmpty(model.name))
 			{
-				setSql.Append( "name=@name");
+				setSql.Append( "name=@name,");
 			}
 			if(!String.IsNullOrEmpty(model.intro))
 			{
-				setSql.Append( "intro=@intro");
+				setSql.Append( "intro=@intro,");
 			}
 			if(!String.IsNullOrEmpty(model.pic))
 			{
-				setSql.Append( "pic=@pic");
+				setSql.Append( "pic=@pic,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -194,6 +194,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_roomface GetInfo(tb_roomface model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_roomface");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_roomface>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

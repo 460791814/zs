@@ -73,19 +73,19 @@ namespace DAL
 			strSql.Append("update tb_status set ");
 			if(!String.IsNullOrEmpty(model.name))
 			{
-				setSql.Append( "name=@name");
+				setSql.Append( "name=@name,");
 			}
 			if(!String.IsNullOrEmpty(model.code))
 			{
-				setSql.Append( "code=@code");
+				setSql.Append( "code=@code,");
 			}
 			if(!String.IsNullOrEmpty(model.remark))
 			{
-				setSql.Append( "remark=@remark");
+				setSql.Append( "remark=@remark,");
 			}
 			if(model.sortnum!=null)
 			{
-				setSql.Append( "sortnum=@sortnum");
+				setSql.Append( "sortnum=@sortnum,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -186,6 +186,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_status GetInfo(tb_status model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_status");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_status>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

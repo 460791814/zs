@@ -71,21 +71,21 @@ namespace DAL
 			StringBuilder strSql=new StringBuilder();
 			StringBuilder setSql=new StringBuilder();
 			strSql.Append("update tb_roomfurniture set ");
-			if(model.roomid!=null)
+			if(!String.IsNullOrEmpty(model.roomid))
 			{
-				setSql.Append( "roomid=@roomid");
+				setSql.Append( "roomid=@roomid,");
 			}
 			if(!String.IsNullOrEmpty(model.name))
 			{
-				setSql.Append( "name=@name");
+				setSql.Append( "name=@name,");
 			}
 			if(!String.IsNullOrEmpty(model.intro))
 			{
-				setSql.Append( "intro=@intro");
+				setSql.Append( "intro=@intro,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -158,7 +158,7 @@ namespace DAL
 			{
 				whereSql.Append( " and id=@id");
 			}
-			if(model.roomid!=null)
+			if(!String.IsNullOrEmpty(model.roomid))
 			{
 				whereSql.Append( " and roomid=@roomid");
 			}
@@ -186,6 +186,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_roomfurniture GetInfo(tb_roomfurniture model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_roomfurniture");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_roomfurniture>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

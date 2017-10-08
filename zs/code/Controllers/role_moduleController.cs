@@ -1,5 +1,12 @@
 using System;
-namespace 
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using DAL;
+using Model;
+using Comp;
+namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
 	/// 权限模块关系表
@@ -13,7 +20,7 @@ namespace
 		public ActionResult role_moduleList(tb_role_module model)
 		{
 			int count = 0;
-			ViewBag.list = dtb_role_module.GetList(model, ref count);
+			ViewBag.list = drole_module.GetList(model, ref count);
 			ViewBag.page = Utils.ShowPage(count, model.PageSize, model.PageIndex, 5);
 			return View();
 		}
@@ -25,13 +32,14 @@ namespace
 		{
 			if (model == null)
 			{
-				return false
+				return false;
 			}
-			if (model.roleid >0)
+			if(!String.IsNullOrEmpty(model.roleid))
 			{
 				 return drole_module.Update(model);
 			}
-			return drole_module.Add(model)>0;
+			model.roleid = Guid.NewGuid().ToString("N");
+			return drole_module.Add(model);
 		}
 
 		/// <summary>
@@ -47,8 +55,8 @@ namespace
 		/// </summary>
 		public ActionResult role_moduleInfo(tb_role_module model)
 		{
-			ViewBag.Info = drole_module.GetInfo(model);
-			return View();
+			model = drole_module.GetInfo(model);
+			return View(model??new tb_role_module());
 		}
 
 	}

@@ -73,11 +73,11 @@ namespace DAL
 			strSql.Append("update tb_sysuser set ");
 			if(!String.IsNullOrEmpty(model.username))
 			{
-				setSql.Append( "username=@username");
+				setSql.Append( "username=@username,");
 			}
 			if(!String.IsNullOrEmpty(model.password))
 			{
-				setSql.Append( "password=@password");
+				setSql.Append( "password=@password,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -170,6 +170,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_sysuser GetInfo(tb_sysuser model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_sysuser");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_sysuser>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

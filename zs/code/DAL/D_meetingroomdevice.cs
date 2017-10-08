@@ -71,21 +71,21 @@ namespace DAL
 			StringBuilder strSql=new StringBuilder();
 			StringBuilder setSql=new StringBuilder();
 			strSql.Append("update tb_meetingroomdevice set ");
-			if(model.meetingroomid!=null)
+			if(!String.IsNullOrEmpty(model.meetingroomid))
 			{
-				setSql.Append( "meetingroomid=@meetingroomid");
+				setSql.Append( "meetingroomid=@meetingroomid,");
 			}
 			if(!String.IsNullOrEmpty(model.name))
 			{
-				setSql.Append( "name=@name");
+				setSql.Append( "name=@name,");
 			}
 			if(!String.IsNullOrEmpty(model.intro))
 			{
-				setSql.Append( "intro=@intro");
+				setSql.Append( "intro=@intro,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -158,7 +158,7 @@ namespace DAL
 			{
 				whereSql.Append( " and id=@id");
 			}
-			if(model.meetingroomid!=null)
+			if(!String.IsNullOrEmpty(model.meetingroomid))
 			{
 				whereSql.Append( " and meetingroomid=@meetingroomid");
 			}
@@ -186,6 +186,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_meetingroomdevice GetInfo(tb_meetingroomdevice model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_meetingroomdevice");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_meetingroomdevice>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

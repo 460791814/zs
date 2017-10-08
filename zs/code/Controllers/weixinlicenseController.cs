@@ -1,5 +1,12 @@
 using System;
-namespace 
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using DAL;
+using Model;
+using Comp;
+namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
 	/// н╒пе
@@ -13,7 +20,7 @@ namespace
 		public ActionResult weixinlicenseList(tb_weixinlicense model)
 		{
 			int count = 0;
-			ViewBag.list = dtb_weixinlicense.GetList(model, ref count);
+			ViewBag.list = dweixinlicense.GetList(model, ref count);
 			ViewBag.page = Utils.ShowPage(count, model.PageSize, model.PageIndex, 5);
 			return View();
 		}
@@ -25,13 +32,9 @@ namespace
 		{
 			if (model == null)
 			{
-				return false
+				return false;
 			}
-			if (model. >0)
-			{
-				 return dweixinlicense.Update(model);
-			}
-			return dweixinlicense.Add(model)>0;
+			return dweixinlicense.Add(model);
 		}
 
 		/// <summary>
@@ -47,8 +50,8 @@ namespace
 		/// </summary>
 		public ActionResult weixinlicenseInfo(tb_weixinlicense model)
 		{
-			ViewBag.Info = dweixinlicense.GetInfo(model);
-			return View();
+			model = dweixinlicense.GetInfo(model);
+			return View(model??new tb_weixinlicense());
 		}
 
 	}

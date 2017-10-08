@@ -71,37 +71,37 @@ namespace DAL
 			StringBuilder strSql=new StringBuilder();
 			StringBuilder setSql=new StringBuilder();
 			strSql.Append("update tb_roomlease set ");
-			if(model.roomid!=null)
+			if(!String.IsNullOrEmpty(model.roomid))
 			{
-				setSql.Append( "roomid=@roomid");
+				setSql.Append( "roomid=@roomid,");
 			}
 			if(!String.IsNullOrEmpty(model.company))
 			{
-				setSql.Append( "company=@company");
+				setSql.Append( "company=@company,");
 			}
 			if(!String.IsNullOrEmpty(model.time))
 			{
-				setSql.Append( "time=@time");
+				setSql.Append( "time=@time,");
 			}
 			if(!String.IsNullOrEmpty(model.linkman))
 			{
-				setSql.Append( "linkman=@linkman");
+				setSql.Append( "linkman=@linkman,");
 			}
 			if(!String.IsNullOrEmpty(model.phone))
 			{
-				setSql.Append( "phone=@phone");
+				setSql.Append( "phone=@phone,");
 			}
 			if(!String.IsNullOrEmpty(model.emergencylinkman))
 			{
-				setSql.Append( "emergencylinkman=@emergencylinkman");
+				setSql.Append( "emergencylinkman=@emergencylinkman,");
 			}
 			if(!String.IsNullOrEmpty(model.emergencyphone))
 			{
-				setSql.Append( "emergencyphone=@emergencyphone");
+				setSql.Append( "emergencyphone=@emergencyphone,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -174,7 +174,7 @@ namespace DAL
 			{
 				whereSql.Append( " and id=@id");
 			}
-			if(model.roomid!=null)
+			if(!String.IsNullOrEmpty(model.roomid))
 			{
 				whereSql.Append( " and roomid=@roomid");
 			}
@@ -218,6 +218,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_roomlease GetInfo(tb_roomlease model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_roomlease");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_roomlease>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

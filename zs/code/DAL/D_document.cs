@@ -73,15 +73,15 @@ namespace DAL
 			strSql.Append("update tb_document set ");
 			if(!String.IsNullOrEmpty(model.title))
 			{
-				setSql.Append( "title=@title");
+				setSql.Append( "title=@title,");
 			}
 			if(!String.IsNullOrEmpty(model.content))
 			{
-				setSql.Append( "content=@content");
+				setSql.Append( "content=@content,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -178,6 +178,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_document GetInfo(tb_document model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_document");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_document>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

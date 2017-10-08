@@ -73,23 +73,23 @@ namespace DAL
 			strSql.Append("update tb_pcctv set ");
 			if(!String.IsNullOrEmpty(model.pid))
 			{
-				setSql.Append( "pid=@pid");
+				setSql.Append( "pid=@pid,");
 			}
 			if(model.pcctvlevel!=null)
 			{
-				setSql.Append( "pcctvlevel=@pcctvlevel");
+				setSql.Append( "pcctvlevel=@pcctvlevel,");
 			}
 			if(!String.IsNullOrEmpty(model.pcctvname))
 			{
-				setSql.Append( "pcctvname=@pcctvname");
+				setSql.Append( "pcctvname=@pcctvname,");
 			}
 			if(!String.IsNullOrEmpty(model.classification))
 			{
-				setSql.Append( "classification=@classification");
+				setSql.Append( "classification=@classification,");
 			}
 			if(!String.IsNullOrEmpty(model.remark))
 			{
-				setSql.Append( "remark=@remark");
+				setSql.Append( "remark=@remark,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -194,6 +194,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_pcctv GetInfo(tb_pcctv model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_pcctv");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_pcctv>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

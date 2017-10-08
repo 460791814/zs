@@ -52,67 +52,67 @@ namespace DAL
 			strSql.Append("update tb_qqlicense set ");
 			if(!String.IsNullOrEmpty(model.id))
 			{
-				setSql.Append( "id=@id");
+				setSql.Append( "id=@id,");
 			}
 			if(!String.IsNullOrEmpty(model.openid))
 			{
-				setSql.Append( "openid=@openid");
+				setSql.Append( "openid=@openid,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			if(model.subscribe!=null)
 			{
-				setSql.Append( "subscribe=@subscribe");
+				setSql.Append( "subscribe=@subscribe,");
 			}
 			if(!String.IsNullOrEmpty(model.nickname))
 			{
-				setSql.Append( "nickname=@nickname");
+				setSql.Append( "nickname=@nickname,");
 			}
 			if(model.sex!=null)
 			{
-				setSql.Append( "sex=@sex");
+				setSql.Append( "sex=@sex,");
 			}
 			if(!String.IsNullOrEmpty(model.city))
 			{
-				setSql.Append( "city=@city");
+				setSql.Append( "city=@city,");
 			}
 			if(!String.IsNullOrEmpty(model.country))
 			{
-				setSql.Append( "country=@country");
+				setSql.Append( "country=@country,");
 			}
 			if(!String.IsNullOrEmpty(model.province))
 			{
-				setSql.Append( "province=@province");
+				setSql.Append( "province=@province,");
 			}
 			if(!String.IsNullOrEmpty(model.language))
 			{
-				setSql.Append( "language=@language");
+				setSql.Append( "language=@language,");
 			}
 			if(!String.IsNullOrEmpty(model.headimgurl))
 			{
-				setSql.Append( "headimgurl=@headimgurl");
+				setSql.Append( "headimgurl=@headimgurl,");
 			}
 			if(!String.IsNullOrEmpty(model.subscribe_time))
 			{
-				setSql.Append( "subscribe_time=@subscribe_time");
+				setSql.Append( "subscribe_time=@subscribe_time,");
 			}
 			if(!String.IsNullOrEmpty(model.unionid))
 			{
-				setSql.Append( "unionid=@unionid");
+				setSql.Append( "unionid=@unionid,");
 			}
 			if(!String.IsNullOrEmpty(model.code))
 			{
-				setSql.Append( "code=@code");
+				setSql.Append( "code=@code,");
 			}
 			if(!String.IsNullOrEmpty(model.userType))
 			{
-				setSql.Append( "userType=@userType");
+				setSql.Append( "userType=@userType,");
 			}
 			if(!String.IsNullOrEmpty(model.userid))
 			{
-				setSql.Append( "userid=@userid");
+				setSql.Append( "userid=@userid,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where ");
@@ -235,6 +235,7 @@ namespace DAL
 			}
 			return list;
 		}
+
 
 		#endregion  Method
 	}

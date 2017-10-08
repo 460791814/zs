@@ -73,15 +73,15 @@ namespace DAL
 			strSql.Append("update tb_calllog set ");
 			if(!String.IsNullOrEmpty(model.phone))
 			{
-				setSql.Append( "phone=@phone");
+				setSql.Append( "phone=@phone,");
 			}
 			if(!String.IsNullOrEmpty(model.calltype))
 			{
-				setSql.Append( "calltype=@calltype");
+				setSql.Append( "calltype=@calltype,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -178,6 +178,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_calllog GetInfo(tb_calllog model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_calllog");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_calllog>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

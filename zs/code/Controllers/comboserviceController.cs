@@ -1,5 +1,12 @@
 using System;
-namespace 
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using DAL;
+using Model;
+using Comp;
+namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
 	/// Ì×²Í·þÎñÄÚÈÝ
@@ -13,7 +20,7 @@ namespace
 		public ActionResult comboserviceList(tb_comboservice model)
 		{
 			int count = 0;
-			ViewBag.list = dtb_comboservice.GetList(model, ref count);
+			ViewBag.list = dcomboservice.GetList(model, ref count);
 			ViewBag.page = Utils.ShowPage(count, model.PageSize, model.PageIndex, 5);
 			return View();
 		}
@@ -25,13 +32,14 @@ namespace
 		{
 			if (model == null)
 			{
-				return false
+				return false;
 			}
-			if (model.id >0)
+			if(!String.IsNullOrEmpty(model.id))
 			{
 				 return dcomboservice.Update(model);
 			}
-			return dcomboservice.Add(model)>0;
+			model.id = Guid.NewGuid().ToString("N");
+			return dcomboservice.Add(model);
 		}
 
 		/// <summary>
@@ -47,8 +55,8 @@ namespace
 		/// </summary>
 		public ActionResult comboserviceInfo(tb_comboservice model)
 		{
-			ViewBag.Info = dcomboservice.GetInfo(model);
-			return View();
+			model = dcomboservice.GetInfo(model);
+			return View(model??new tb_comboservice());
 		}
 
 	}

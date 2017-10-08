@@ -73,87 +73,87 @@ namespace DAL
 			strSql.Append("update tb_meetingorder set ");
 			if(!String.IsNullOrEmpty(model.orderno))
 			{
-				setSql.Append( "orderno=@orderno");
+				setSql.Append( "orderno=@orderno,");
 			}
 			if(!String.IsNullOrEmpty(model.buildingid))
 			{
-				setSql.Append( "buildingid=@buildingid");
+				setSql.Append( "buildingid=@buildingid,");
 			}
 			if(!String.IsNullOrEmpty(model.buildingname))
 			{
-				setSql.Append( "buildingname=@buildingname");
+				setSql.Append( "buildingname=@buildingname,");
 			}
 			if(!String.IsNullOrEmpty(model.meetingroomid))
 			{
-				setSql.Append( "meetingroomid=@meetingroomid");
+				setSql.Append( "meetingroomid=@meetingroomid,");
 			}
 			if(!String.IsNullOrEmpty(model.meetingroomname))
 			{
-				setSql.Append( "meetingroomname=@meetingroomname");
+				setSql.Append( "meetingroomname=@meetingroomname,");
 			}
 			if(!String.IsNullOrEmpty(model.comboid))
 			{
-				setSql.Append( "comboid=@comboid");
+				setSql.Append( "comboid=@comboid,");
 			}
 			if(!String.IsNullOrEmpty(model.comboname))
 			{
-				setSql.Append( "comboname=@comboname");
+				setSql.Append( "comboname=@comboname,");
 			}
 			if(!String.IsNullOrEmpty(model.userid))
 			{
-				setSql.Append( "userid=@userid");
+				setSql.Append( "userid=@userid,");
 			}
 			if(!String.IsNullOrEmpty(model.username))
 			{
-				setSql.Append( "username=@username");
+				setSql.Append( "username=@username,");
 			}
 			if(!String.IsNullOrEmpty(model.userphone))
 			{
-				setSql.Append( "userphone=@userphone");
+				setSql.Append( "userphone=@userphone,");
 			}
 			if(model.meetingpersonnum!=null)
 			{
-				setSql.Append( "meetingpersonnum=@meetingpersonnum");
+				setSql.Append( "meetingpersonnum=@meetingpersonnum,");
 			}
 			if(model.meetingdate!=null)
 			{
-				setSql.Append( "meetingdate=@meetingdate");
+				setSql.Append( "meetingdate=@meetingdate,");
 			}
 			if(!String.IsNullOrEmpty(model.meetingAMorPM))
 			{
-				setSql.Append( "meetingAMorPM=@meetingAMorPM");
+				setSql.Append( "meetingAMorPM=@meetingAMorPM,");
 			}
 			if(!String.IsNullOrEmpty(model.status))
 			{
-				setSql.Append( "status=@status");
+				setSql.Append( "status=@status,");
 			}
 			if(!String.IsNullOrEmpty(model.linkman))
 			{
-				setSql.Append( "linkman=@linkman");
+				setSql.Append( "linkman=@linkman,");
 			}
 			if(!String.IsNullOrEmpty(model.linktel))
 			{
-				setSql.Append( "linktel=@linktel");
+				setSql.Append( "linktel=@linktel,");
 			}
 			if(model.meetingnum!=null)
 			{
-				setSql.Append( "meetingnum=@meetingnum");
+				setSql.Append( "meetingnum=@meetingnum,");
 			}
 			if(!String.IsNullOrEmpty(model.remark))
 			{
-				setSql.Append( "remark=@remark");
+				setSql.Append( "remark=@remark,");
 			}
 			if(!String.IsNullOrEmpty(model.otherservice))
 			{
-				setSql.Append( "otherservice=@otherservice");
+				setSql.Append( "otherservice=@otherservice,");
 			}
 			if(model.isdel)
 			{
-				setSql.Append( "isdel=@isdel");
+				setSql.Append( "isdel=@isdel,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -322,6 +322,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_meetingorder GetInfo(tb_meetingorder model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_meetingorder");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_meetingorder>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

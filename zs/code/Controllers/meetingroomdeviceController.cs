@@ -1,5 +1,12 @@
 using System;
-namespace 
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using DAL;
+using Model;
+using Comp;
+namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
 	/// 会议室配套设备设施
@@ -13,7 +20,7 @@ namespace
 		public ActionResult meetingroomdeviceList(tb_meetingroomdevice model)
 		{
 			int count = 0;
-			ViewBag.list = dtb_meetingroomdevice.GetList(model, ref count);
+			ViewBag.list = dmeetingroomdevice.GetList(model, ref count);
 			ViewBag.page = Utils.ShowPage(count, model.PageSize, model.PageIndex, 5);
 			return View();
 		}
@@ -25,13 +32,14 @@ namespace
 		{
 			if (model == null)
 			{
-				return false
+				return false;
 			}
-			if (model.id >0)
+			if(!String.IsNullOrEmpty(model.id))
 			{
 				 return dmeetingroomdevice.Update(model);
 			}
-			return dmeetingroomdevice.Add(model)>0;
+			model.id = Guid.NewGuid().ToString("N");
+			return dmeetingroomdevice.Add(model);
 		}
 
 		/// <summary>
@@ -47,8 +55,8 @@ namespace
 		/// </summary>
 		public ActionResult meetingroomdeviceInfo(tb_meetingroomdevice model)
 		{
-			ViewBag.Info = dmeetingroomdevice.GetInfo(model);
-			return View();
+			model = dmeetingroomdevice.GetInfo(model);
+			return View(model??new tb_meetingroomdevice());
 		}
 
 	}

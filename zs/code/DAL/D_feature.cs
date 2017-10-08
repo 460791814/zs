@@ -73,35 +73,35 @@ namespace DAL
 			strSql.Append("update tb_feature set ");
 			if(!String.IsNullOrEmpty(model.img))
 			{
-				setSql.Append( "img=@img");
+				setSql.Append( "img=@img,");
 			}
 			if(!String.IsNullOrEmpty(model.type))
 			{
-				setSql.Append( "type=@type");
+				setSql.Append( "type=@type,");
 			}
 			if(!String.IsNullOrEmpty(model.code))
 			{
-				setSql.Append( "code=@code");
+				setSql.Append( "code=@code,");
 			}
 			if(!String.IsNullOrEmpty(model.version))
 			{
-				setSql.Append( "version=@version");
+				setSql.Append( "version=@version,");
 			}
 			if(!String.IsNullOrEmpty(model.remark))
 			{
-				setSql.Append( "remark=@remark");
+				setSql.Append( "remark=@remark,");
 			}
 			if(model.isdel)
 			{
-				setSql.Append( "isdel=@isdel");
+				setSql.Append( "isdel=@isdel,");
 			}
 			if(model.sortnum!=null)
 			{
-				setSql.Append( "sortnum=@sortnum");
+				setSql.Append( "sortnum=@sortnum,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -218,6 +218,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_feature GetInfo(tb_feature model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_feature");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_feature>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

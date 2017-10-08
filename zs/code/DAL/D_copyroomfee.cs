@@ -71,25 +71,25 @@ namespace DAL
 			StringBuilder strSql=new StringBuilder();
 			StringBuilder setSql=new StringBuilder();
 			strSql.Append("update tb_copyroomfee set ");
-			if(model.copyroomid!=null)
+			if(!String.IsNullOrEmpty(model.copyroomid))
 			{
-				setSql.Append( "copyroomid=@copyroomid");
+				setSql.Append( "copyroomid=@copyroomid,");
 			}
 			if(!String.IsNullOrEmpty(model.name))
 			{
-				setSql.Append( "name=@name");
+				setSql.Append( "name=@name,");
 			}
 			if(!String.IsNullOrEmpty(model.intro))
 			{
-				setSql.Append( "intro=@intro");
+				setSql.Append( "intro=@intro,");
 			}
 			if(!String.IsNullOrEmpty(model.fee))
 			{
-				setSql.Append( "fee=@fee");
+				setSql.Append( "fee=@fee,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -162,7 +162,7 @@ namespace DAL
 			{
 				whereSql.Append( " and id=@id");
 			}
-			if(model.copyroomid!=null)
+			if(!String.IsNullOrEmpty(model.copyroomid))
 			{
 				whereSql.Append( " and copyroomid=@copyroomid");
 			}
@@ -194,6 +194,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_copyroomfee GetInfo(tb_copyroomfee model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_copyroomfee");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_copyroomfee>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

@@ -46,9 +46,9 @@ namespace DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into tb_copyroom(");
-			strSql.Append("houseid,name,address,phone,isopen,intro,id,addtime)");
+			strSql.Append("buildingid,name,address,phone,isopen,intro,id,addtime)");
 			strSql.Append(" values (");
-			strSql.Append("@houseid,@name,@address,@phone,@isopen,@intro,@id,@addtime)");
+			strSql.Append("@buildingid,@name,@address,@phone,@isopen,@intro,@id,@addtime)");
 			using (IDbConnection conn = DapperHelper.OpenConnection())
 			{
 				int count = conn.Execute(strSql.ToString(), model);
@@ -71,33 +71,33 @@ namespace DAL
 			StringBuilder strSql=new StringBuilder();
 			StringBuilder setSql=new StringBuilder();
 			strSql.Append("update tb_copyroom set ");
-			if(model.houseid!=null)
+			if(!String.IsNullOrEmpty(model.buildingid))
 			{
-				setSql.Append( "houseid=@houseid");
+				setSql.Append( "buildingid=@buildingid,");
 			}
 			if(!String.IsNullOrEmpty(model.name))
 			{
-				setSql.Append( "name=@name");
+				setSql.Append( "name=@name,");
 			}
 			if(!String.IsNullOrEmpty(model.address))
 			{
-				setSql.Append( "address=@address");
+				setSql.Append( "address=@address,");
 			}
 			if(!String.IsNullOrEmpty(model.phone))
 			{
-				setSql.Append( "phone=@phone");
+				setSql.Append( "phone=@phone,");
 			}
 			if(model.isopen!=null)
 			{
-				setSql.Append( "isopen=@isopen");
+				setSql.Append( "isopen=@isopen,");
 			}
 			if(!String.IsNullOrEmpty(model.intro))
 			{
-				setSql.Append( "intro=@intro");
+				setSql.Append( "intro=@intro,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -166,9 +166,9 @@ namespace DAL
 			StringBuilder strSql=new StringBuilder();
 			StringBuilder whereSql = new StringBuilder(" where 1 = 1 ");
 			strSql.Append(" select  ROW_NUMBER() OVER(ORDER BY id desc) AS RID, * from tb_copyroom ");
-			if(model.houseid!=null)
+			if(!String.IsNullOrEmpty(model.buildingid))
 			{
-				whereSql.Append( " and houseid=@houseid");
+				whereSql.Append( " and buildingid=@buildingid");
 			}
 			if(!String.IsNullOrEmpty(model.name))
 			{
@@ -210,6 +210,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_copyroom GetInfo(tb_copyroom model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_copyroom");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_copyroom>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

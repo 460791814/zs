@@ -73,23 +73,23 @@ namespace DAL
 			strSql.Append("update tb_base set ");
 			if(model.parentid!=null)
 			{
-				setSql.Append( "parentid=@parentid");
+				setSql.Append( "parentid=@parentid,");
 			}
 			if(!String.IsNullOrEmpty(model.name))
 			{
-				setSql.Append( "name=@name");
+				setSql.Append( "name=@name,");
 			}
 			if(!String.IsNullOrEmpty(model.code))
 			{
-				setSql.Append( "code=@code");
+				setSql.Append( "code=@code,");
 			}
 			if(!String.IsNullOrEmpty(model.remark))
 			{
-				setSql.Append( "remark=@remark");
+				setSql.Append( "remark=@remark,");
 			}
 			if(model.sortnum!=null)
 			{
-				setSql.Append( "sortnum=@sortnum");
+				setSql.Append( "sortnum=@sortnum,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -194,6 +194,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_base GetInfo(tb_base model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_base");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_base>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

@@ -1,5 +1,12 @@
 using System;
-namespace 
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using DAL;
+using Model;
+using Comp;
+namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
 	/// 各类车型车位数量
@@ -13,7 +20,7 @@ namespace
 		public ActionResult parkspaceList(tb_parkspace model)
 		{
 			int count = 0;
-			ViewBag.list = dtb_parkspace.GetList(model, ref count);
+			ViewBag.list = dparkspace.GetList(model, ref count);
 			ViewBag.page = Utils.ShowPage(count, model.PageSize, model.PageIndex, 5);
 			return View();
 		}
@@ -25,13 +32,14 @@ namespace
 		{
 			if (model == null)
 			{
-				return false
+				return false;
 			}
-			if (model.id >0)
+			if(!String.IsNullOrEmpty(model.id))
 			{
 				 return dparkspace.Update(model);
 			}
-			return dparkspace.Add(model)>0;
+			model.id = Guid.NewGuid().ToString("N");
+			return dparkspace.Add(model);
 		}
 
 		/// <summary>
@@ -47,8 +55,8 @@ namespace
 		/// </summary>
 		public ActionResult parkspaceInfo(tb_parkspace model)
 		{
-			ViewBag.Info = dparkspace.GetInfo(model);
-			return View();
+			model = dparkspace.GetInfo(model);
+			return View(model??new tb_parkspace());
 		}
 
 	}

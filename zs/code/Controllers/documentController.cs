@@ -1,5 +1,12 @@
 using System;
-namespace 
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using DAL;
+using Model;
+using Comp;
+namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
 	/// ÄÚÈÝ¹ÜÀí
@@ -13,7 +20,7 @@ namespace
 		public ActionResult documentList(tb_document model)
 		{
 			int count = 0;
-			ViewBag.list = dtb_document.GetList(model, ref count);
+			ViewBag.list = ddocument.GetList(model, ref count);
 			ViewBag.page = Utils.ShowPage(count, model.PageSize, model.PageIndex, 5);
 			return View();
 		}
@@ -25,13 +32,14 @@ namespace
 		{
 			if (model == null)
 			{
-				return false
+				return false;
 			}
-			if (model.id >0)
+			if(!String.IsNullOrEmpty(model.id))
 			{
 				 return ddocument.Update(model);
 			}
-			return ddocument.Add(model)>0;
+			model.id = Guid.NewGuid().ToString("N");
+			return ddocument.Add(model);
 		}
 
 		/// <summary>
@@ -47,8 +55,8 @@ namespace
 		/// </summary>
 		public ActionResult documentInfo(tb_document model)
 		{
-			ViewBag.Info = ddocument.GetInfo(model);
-			return View();
+			model = ddocument.GetInfo(model);
+			return View(model??new tb_document());
 		}
 
 	}

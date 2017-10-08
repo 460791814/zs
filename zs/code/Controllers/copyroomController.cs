@@ -1,5 +1,12 @@
 using System;
-namespace 
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using DAL;
+using Model;
+using Comp;
+namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
 	/// ÎÄÓ¡Éè¼Æ
@@ -13,7 +20,7 @@ namespace
 		public ActionResult copyroomList(tb_copyroom model)
 		{
 			int count = 0;
-			ViewBag.list = dtb_copyroom.GetList(model, ref count);
+			ViewBag.list = dcopyroom.GetList(model, ref count);
 			ViewBag.page = Utils.ShowPage(count, model.PageSize, model.PageIndex, 5);
 			return View();
 		}
@@ -25,13 +32,14 @@ namespace
 		{
 			if (model == null)
 			{
-				return false
+				return false;
 			}
-			if (model.id >0)
+			if(!String.IsNullOrEmpty(model.id))
 			{
 				 return dcopyroom.Update(model);
 			}
-			return dcopyroom.Add(model)>0;
+			model.id = Guid.NewGuid().ToString("N");
+			return dcopyroom.Add(model);
 		}
 
 		/// <summary>
@@ -47,8 +55,8 @@ namespace
 		/// </summary>
 		public ActionResult copyroomInfo(tb_copyroom model)
 		{
-			ViewBag.Info = dcopyroom.GetInfo(model);
-			return View();
+			model = dcopyroom.GetInfo(model);
+			return View(model??new tb_copyroom());
 		}
 
 	}

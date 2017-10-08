@@ -1,5 +1,12 @@
 using System;
-namespace 
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using DAL;
+using Model;
+using Comp;
+namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
 	/// Ê×Ò³ ÍÆ¼öÄÚÈÝ
@@ -13,7 +20,7 @@ namespace
 		public ActionResult featureList(tb_feature model)
 		{
 			int count = 0;
-			ViewBag.list = dtb_feature.GetList(model, ref count);
+			ViewBag.list = dfeature.GetList(model, ref count);
 			ViewBag.page = Utils.ShowPage(count, model.PageSize, model.PageIndex, 5);
 			return View();
 		}
@@ -25,13 +32,14 @@ namespace
 		{
 			if (model == null)
 			{
-				return false
+				return false;
 			}
-			if (model.id >0)
+			if(!String.IsNullOrEmpty(model.id))
 			{
 				 return dfeature.Update(model);
 			}
-			return dfeature.Add(model)>0;
+			model.id = Guid.NewGuid().ToString("N");
+			return dfeature.Add(model);
 		}
 
 		/// <summary>
@@ -47,8 +55,8 @@ namespace
 		/// </summary>
 		public ActionResult featureInfo(tb_feature model)
 		{
-			ViewBag.Info = dfeature.GetInfo(model);
-			return View();
+			model = dfeature.GetInfo(model);
+			return View(model??new tb_feature());
 		}
 
 	}

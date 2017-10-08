@@ -73,19 +73,19 @@ namespace DAL
 			strSql.Append("update tb_appusertoken set ");
 			if(!String.IsNullOrEmpty(model.usertype))
 			{
-				setSql.Append( "usertype=@usertype");
+				setSql.Append( "usertype=@usertype,");
 			}
 			if(!String.IsNullOrEmpty(model.code))
 			{
-				setSql.Append( "code=@code");
+				setSql.Append( "code=@code,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			if(!String.IsNullOrEmpty(model.userid))
 			{
-				setSql.Append( "userid=@userid");
+				setSql.Append( "userid=@userid,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -186,6 +186,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_appusertoken GetInfo(tb_appusertoken model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_appusertoken");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_appusertoken>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

@@ -73,27 +73,27 @@ namespace DAL
 			strSql.Append("update tb_favorite set ");
 			if(!String.IsNullOrEmpty(model.favoritetype))
 			{
-				setSql.Append( "favoritetype=@favoritetype");
+				setSql.Append( "favoritetype=@favoritetype,");
 			}
 			if(!String.IsNullOrEmpty(model.favoriteid))
 			{
-				setSql.Append( "favoriteid=@favoriteid");
+				setSql.Append( "favoriteid=@favoriteid,");
 			}
 			if(model.favoritedate!=null)
 			{
-				setSql.Append( "favoritedate=@favoritedate");
+				setSql.Append( "favoritedate=@favoritedate,");
 			}
 			if(model.isdel)
 			{
-				setSql.Append( "isdel=@isdel");
+				setSql.Append( "isdel=@isdel,");
 			}
 			if(!String.IsNullOrEmpty(model.favoriteintro))
 			{
-				setSql.Append( "favoriteintro=@favoriteintro");
+				setSql.Append( "favoriteintro=@favoriteintro,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -202,6 +202,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_favorite GetInfo(tb_favorite model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_favorite");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_favorite>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

@@ -73,131 +73,131 @@ namespace DAL
 			strSql.Append("update tb_user set ");
 			if(!String.IsNullOrEmpty(model.code))
 			{
-				setSql.Append( "code=@code");
+				setSql.Append( "code=@code,");
 			}
 			if(!String.IsNullOrEmpty(model.nickname))
 			{
-				setSql.Append( "nickname=@nickname");
+				setSql.Append( "nickname=@nickname,");
 			}
 			if(!String.IsNullOrEmpty(model.phonenum))
 			{
-				setSql.Append( "phonenum=@phonenum");
+				setSql.Append( "phonenum=@phonenum,");
 			}
 			if(!String.IsNullOrEmpty(model.address))
 			{
-				setSql.Append( "address=@address");
+				setSql.Append( "address=@address,");
 			}
 			if(model.longitude!=null)
 			{
-				setSql.Append( "longitude=@longitude");
+				setSql.Append( "longitude=@longitude,");
 			}
 			if(model.latitude!=null)
 			{
-				setSql.Append( "latitude=@latitude");
+				setSql.Append( "latitude=@latitude,");
 			}
 			if(!String.IsNullOrEmpty(model.remark))
 			{
-				setSql.Append( "remark=@remark");
+				setSql.Append( "remark=@remark,");
 			}
 			if(model.createdate!=null)
 			{
-				setSql.Append( "createdate=@createdate");
+				setSql.Append( "createdate=@createdate,");
 			}
 			if(model.updatedate!=null)
 			{
-				setSql.Append( "updatedate=@updatedate");
+				setSql.Append( "updatedate=@updatedate,");
 			}
 			if(!String.IsNullOrEmpty(model.pwd))
 			{
-				setSql.Append( "pwd=@pwd");
+				setSql.Append( "pwd=@pwd,");
 			}
 			if(!String.IsNullOrEmpty(model.province))
 			{
-				setSql.Append( "province=@province");
+				setSql.Append( "province=@province,");
 			}
 			if(!String.IsNullOrEmpty(model.city))
 			{
-				setSql.Append( "city=@city");
+				setSql.Append( "city=@city,");
 			}
 			if(!String.IsNullOrEmpty(model.county))
 			{
-				setSql.Append( "county=@county");
+				setSql.Append( "county=@county,");
 			}
 			if(!String.IsNullOrEmpty(model.location))
 			{
-				setSql.Append( "location=@location");
+				setSql.Append( "location=@location,");
 			}
 			if(!String.IsNullOrEmpty(model.sex))
 			{
-				setSql.Append( "sex=@sex");
+				setSql.Append( "sex=@sex,");
 			}
 			if(!String.IsNullOrEmpty(model.job))
 			{
-				setSql.Append( "job=@job");
+				setSql.Append( "job=@job,");
 			}
 			if(model.age!=null)
 			{
-				setSql.Append( "age=@age");
+				setSql.Append( "age=@age,");
 			}
 			if(!String.IsNullOrEmpty(model.constellation))
 			{
-				setSql.Append( "constellation=@constellation");
+				setSql.Append( "constellation=@constellation,");
 			}
 			if(!String.IsNullOrEmpty(model.hav))
 			{
-				setSql.Append( "hav=@hav");
+				setSql.Append( "hav=@hav,");
 			}
 			if(model.tall!=null)
 			{
-				setSql.Append( "tall=@tall");
+				setSql.Append( "tall=@tall,");
 			}
 			if(!String.IsNullOrEmpty(model.schedule))
 			{
-				setSql.Append( "schedule=@schedule");
+				setSql.Append( "schedule=@schedule,");
 			}
 			if(!String.IsNullOrEmpty(model.sgin))
 			{
-				setSql.Append( "sgin=@sgin");
+				setSql.Append( "sgin=@sgin,");
 			}
 			if(!String.IsNullOrEmpty(model.hobby))
 			{
-				setSql.Append( "hobby=@hobby");
+				setSql.Append( "hobby=@hobby,");
 			}
 			if(model.birth!=null)
 			{
-				setSql.Append( "birth=@birth");
+				setSql.Append( "birth=@birth,");
 			}
 			if(!String.IsNullOrEmpty(model.wx))
 			{
-				setSql.Append( "wx=@wx");
+				setSql.Append( "wx=@wx,");
 			}
 			if(!String.IsNullOrEmpty(model.issingle))
 			{
-				setSql.Append( "issingle=@issingle");
+				setSql.Append( "issingle=@issingle,");
 			}
 			if(!String.IsNullOrEmpty(model.company))
 			{
-				setSql.Append( "company=@company");
+				setSql.Append( "company=@company,");
 			}
 			if(!String.IsNullOrEmpty(model.companyaddress))
 			{
-				setSql.Append( "companyaddress=@companyaddress");
+				setSql.Append( "companyaddress=@companyaddress,");
 			}
 			if(!String.IsNullOrEmpty(model.realname))
 			{
-				setSql.Append( "realname=@realname");
+				setSql.Append( "realname=@realname,");
 			}
 			if(!String.IsNullOrEmpty(model.avatar))
 			{
-				setSql.Append( "avatar=@avatar");
+				setSql.Append( "avatar=@avatar,");
 			}
 			if(model.isdel)
 			{
-				setSql.Append( "isdel=@isdel");
+				setSql.Append( "isdel=@isdel,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -410,6 +410,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_user GetInfo(tb_user model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_user");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_user>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

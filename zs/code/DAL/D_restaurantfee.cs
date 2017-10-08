@@ -71,25 +71,25 @@ namespace DAL
 			StringBuilder strSql=new StringBuilder();
 			StringBuilder setSql=new StringBuilder();
 			strSql.Append("update tb_restaurantfee set ");
-			if(model.restaurantid!=null)
+			if(!String.IsNullOrEmpty(model.restaurantid))
 			{
-				setSql.Append( "restaurantid=@restaurantid");
+				setSql.Append( "restaurantid=@restaurantid,");
 			}
 			if(!String.IsNullOrEmpty(model.name))
 			{
-				setSql.Append( "name=@name");
+				setSql.Append( "name=@name,");
 			}
 			if(!String.IsNullOrEmpty(model.intro))
 			{
-				setSql.Append( "intro=@intro");
+				setSql.Append( "intro=@intro,");
 			}
 			if(model.price!=null)
 			{
-				setSql.Append( "price=@price");
+				setSql.Append( "price=@price,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -162,7 +162,7 @@ namespace DAL
 			{
 				whereSql.Append( " and id=@id");
 			}
-			if(model.restaurantid!=null)
+			if(!String.IsNullOrEmpty(model.restaurantid))
 			{
 				whereSql.Append( " and restaurantid=@restaurantid");
 			}
@@ -194,6 +194,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_restaurantfee GetInfo(tb_restaurantfee model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_restaurantfee");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_restaurantfee>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

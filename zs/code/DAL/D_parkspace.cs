@@ -71,21 +71,21 @@ namespace DAL
 			StringBuilder strSql=new StringBuilder();
 			StringBuilder setSql=new StringBuilder();
 			strSql.Append("update tb_parkspace set ");
-			if(model.parkid!=null)
+			if(!String.IsNullOrEmpty(model.parkid))
 			{
-				setSql.Append( "parkid=@parkid");
+				setSql.Append( "parkid=@parkid,");
 			}
 			if(!String.IsNullOrEmpty(model.name))
 			{
-				setSql.Append( "name=@name");
+				setSql.Append( "name=@name,");
 			}
 			if(model.number!=null)
 			{
-				setSql.Append( "number=@number");
+				setSql.Append( "number=@number,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -158,7 +158,7 @@ namespace DAL
 			{
 				whereSql.Append( " and id=@id");
 			}
-			if(model.parkid!=null)
+			if(!String.IsNullOrEmpty(model.parkid))
 			{
 				whereSql.Append( " and parkid=@parkid");
 			}
@@ -186,6 +186,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_parkspace GetInfo(tb_parkspace model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_parkspace");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_parkspace>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

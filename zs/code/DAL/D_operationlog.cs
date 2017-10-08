@@ -73,23 +73,23 @@ namespace DAL
 			strSql.Append("update tb_operationlog set ");
 			if(!String.IsNullOrEmpty(model.username))
 			{
-				setSql.Append( "username=@username");
+				setSql.Append( "username=@username,");
 			}
 			if(!String.IsNullOrEmpty(model.ip))
 			{
-				setSql.Append( "ip=@ip");
+				setSql.Append( "ip=@ip,");
 			}
 			if(!String.IsNullOrEmpty(model.target))
 			{
-				setSql.Append( "target=@target");
+				setSql.Append( "target=@target,");
 			}
 			if(!String.IsNullOrEmpty(model.action))
 			{
-				setSql.Append( "action=@action");
+				setSql.Append( "action=@action,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -194,6 +194,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_operationlog GetInfo(tb_operationlog model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_operationlog");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_operationlog>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

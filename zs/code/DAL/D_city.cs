@@ -73,7 +73,7 @@ namespace DAL
 			strSql.Append("update tb_city set ");
 			if(!String.IsNullOrEmpty(model.cityname))
 			{
-				setSql.Append( "cityname=@cityname");
+				setSql.Append( "cityname=@cityname,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -162,6 +162,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_city GetInfo(tb_city model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_city");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_city>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

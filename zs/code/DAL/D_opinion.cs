@@ -73,15 +73,15 @@ namespace DAL
 			strSql.Append("update tb_opinion set ");
 			if(!String.IsNullOrEmpty(model.username))
 			{
-				setSql.Append( "username=@username");
+				setSql.Append( "username=@username,");
 			}
 			if(!String.IsNullOrEmpty(model.content))
 			{
-				setSql.Append( "content=@content");
+				setSql.Append( "content=@content,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -178,6 +178,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_opinion GetInfo(tb_opinion model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_opinion");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_opinion>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

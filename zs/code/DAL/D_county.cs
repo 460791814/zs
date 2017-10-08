@@ -73,7 +73,7 @@ namespace DAL
 			strSql.Append("update tb_county set ");
 			if(!String.IsNullOrEmpty(model.countyname))
 			{
-				setSql.Append( "countyname=@countyname");
+				setSql.Append( "countyname=@countyname,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -162,6 +162,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_county GetInfo(tb_county model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_county");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_county>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

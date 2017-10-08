@@ -1,5 +1,12 @@
 using System;
-namespace 
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using DAL;
+using Model;
+using Comp;
+namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
 	/// 会议服务 会议预定管理
@@ -13,7 +20,7 @@ namespace
 		public ActionResult meetingorderList(tb_meetingorder model)
 		{
 			int count = 0;
-			ViewBag.list = dtb_meetingorder.GetList(model, ref count);
+			ViewBag.list = dmeetingorder.GetList(model, ref count);
 			ViewBag.page = Utils.ShowPage(count, model.PageSize, model.PageIndex, 5);
 			return View();
 		}
@@ -25,13 +32,14 @@ namespace
 		{
 			if (model == null)
 			{
-				return false
+				return false;
 			}
-			if (model.id >0)
+			if(!String.IsNullOrEmpty(model.id))
 			{
 				 return dmeetingorder.Update(model);
 			}
-			return dmeetingorder.Add(model)>0;
+			model.id = Guid.NewGuid().ToString("N");
+			return dmeetingorder.Add(model);
 		}
 
 		/// <summary>
@@ -47,8 +55,8 @@ namespace
 		/// </summary>
 		public ActionResult meetingorderInfo(tb_meetingorder model)
 		{
-			ViewBag.Info = dmeetingorder.GetInfo(model);
-			return View();
+			model = dmeetingorder.GetInfo(model);
+			return View(model??new tb_meetingorder());
 		}
 
 	}

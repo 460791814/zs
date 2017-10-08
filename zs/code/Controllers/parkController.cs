@@ -1,5 +1,12 @@
 using System;
-namespace 
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using DAL;
+using Model;
+using Comp;
+namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
 	/// 车位信息
@@ -13,7 +20,7 @@ namespace
 		public ActionResult parkList(tb_park model)
 		{
 			int count = 0;
-			ViewBag.list = dtb_park.GetList(model, ref count);
+			ViewBag.list = dpark.GetList(model, ref count);
 			ViewBag.page = Utils.ShowPage(count, model.PageSize, model.PageIndex, 5);
 			return View();
 		}
@@ -25,13 +32,14 @@ namespace
 		{
 			if (model == null)
 			{
-				return false
+				return false;
 			}
-			if (model.id >0)
+			if(!String.IsNullOrEmpty(model.id))
 			{
 				 return dpark.Update(model);
 			}
-			return dpark.Add(model)>0;
+			model.id = Guid.NewGuid().ToString("N");
+			return dpark.Add(model);
 		}
 
 		/// <summary>
@@ -47,8 +55,8 @@ namespace
 		/// </summary>
 		public ActionResult parkInfo(tb_park model)
 		{
-			ViewBag.Info = dpark.GetInfo(model);
-			return View();
+			model = dpark.GetInfo(model);
+			return View(model??new tb_park());
 		}
 
 	}

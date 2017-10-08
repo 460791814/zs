@@ -46,9 +46,9 @@ namespace DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into tb_room(");
-			strSql.Append("id,houseid,floor,roomnumber,roomtype,hold,housetype,direction,space,fee,status,isopen,isdel,sortnum,addtime)");
+			strSql.Append("id,buildingid,floor,roomnumber,roomtype,hold,housetype,direction,space,fee,status,isopen,isdel,sortnum,addtime)");
 			strSql.Append(" values (");
-			strSql.Append("@id,@houseid,@floor,@roomnumber,@roomtype,@hold,@housetype,@direction,@space,@fee,@status,@isopen,@isdel,@sortnum,@addtime)");
+			strSql.Append("@id,@buildingid,@floor,@roomnumber,@roomtype,@hold,@housetype,@direction,@space,@fee,@status,@isopen,@isdel,@sortnum,@addtime)");
 			using (IDbConnection conn = DapperHelper.OpenConnection())
 			{
 				int count = conn.Execute(strSql.ToString(), model);
@@ -71,61 +71,61 @@ namespace DAL
 			StringBuilder strSql=new StringBuilder();
 			StringBuilder setSql=new StringBuilder();
 			strSql.Append("update tb_room set ");
-			if(!String.IsNullOrEmpty(model.houseid))
+			if(!String.IsNullOrEmpty(model.buildingid))
 			{
-				setSql.Append( "houseid=@houseid");
+				setSql.Append( "buildingid=@buildingid,");
 			}
 			if(!String.IsNullOrEmpty(model.floor))
 			{
-				setSql.Append( "floor=@floor");
+				setSql.Append( "floor=@floor,");
 			}
 			if(!String.IsNullOrEmpty(model.roomnumber))
 			{
-				setSql.Append( "roomnumber=@roomnumber");
+				setSql.Append( "roomnumber=@roomnumber,");
 			}
 			if(model.roomtype!=null)
 			{
-				setSql.Append( "roomtype=@roomtype");
+				setSql.Append( "roomtype=@roomtype,");
 			}
 			if(!String.IsNullOrEmpty(model.hold))
 			{
-				setSql.Append( "hold=@hold");
+				setSql.Append( "hold=@hold,");
 			}
 			if(!String.IsNullOrEmpty(model.housetype))
 			{
-				setSql.Append( "housetype=@housetype");
+				setSql.Append( "housetype=@housetype,");
 			}
 			if(!String.IsNullOrEmpty(model.direction))
 			{
-				setSql.Append( "direction=@direction");
+				setSql.Append( "direction=@direction,");
 			}
 			if(!String.IsNullOrEmpty(model.space))
 			{
-				setSql.Append( "space=@space");
+				setSql.Append( "space=@space,");
 			}
 			if(!String.IsNullOrEmpty(model.fee))
 			{
-				setSql.Append( "fee=@fee");
+				setSql.Append( "fee=@fee,");
 			}
 			if(model.status!=null)
 			{
-				setSql.Append( "status=@status");
+				setSql.Append( "status=@status,");
 			}
 			if(model.isopen!=null)
 			{
-				setSql.Append( "isopen=@isopen");
+				setSql.Append( "isopen=@isopen,");
 			}
 			if(model.isdel)
 			{
-				setSql.Append( "isdel=@isdel");
+				setSql.Append( "isdel=@isdel,");
 			}
 			if(model.sortnum!=null)
 			{
-				setSql.Append( "sortnum=@sortnum");
+				setSql.Append( "sortnum=@sortnum,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -198,9 +198,9 @@ namespace DAL
 			{
 				whereSql.Append( " and id=@id");
 			}
-			if(!String.IsNullOrEmpty(model.houseid))
+			if(!String.IsNullOrEmpty(model.buildingid))
 			{
-				whereSql.Append( " and houseid=@houseid");
+				whereSql.Append( " and buildingid=@buildingid");
 			}
 			if(!String.IsNullOrEmpty(model.floor))
 			{
@@ -266,6 +266,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_room GetInfo(tb_room model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_room");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_room>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }

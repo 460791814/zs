@@ -1,5 +1,12 @@
 using System;
-namespace 
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using DAL;
+using Model;
+using Comp;
+namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
 	/// 手机短信验证码
@@ -13,7 +20,7 @@ namespace
 		public ActionResult smsList(tb_sms model)
 		{
 			int count = 0;
-			ViewBag.list = dtb_sms.GetList(model, ref count);
+			ViewBag.list = dsms.GetList(model, ref count);
 			ViewBag.page = Utils.ShowPage(count, model.PageSize, model.PageIndex, 5);
 			return View();
 		}
@@ -25,13 +32,14 @@ namespace
 		{
 			if (model == null)
 			{
-				return false
+				return false;
 			}
-			if (model.id >0)
+			if(!String.IsNullOrEmpty(model.id))
 			{
 				 return dsms.Update(model);
 			}
-			return dsms.Add(model)>0;
+			model.id = Guid.NewGuid().ToString("N");
+			return dsms.Add(model);
 		}
 
 		/// <summary>
@@ -47,8 +55,8 @@ namespace
 		/// </summary>
 		public ActionResult smsInfo(tb_sms model)
 		{
-			ViewBag.Info = dsms.GetInfo(model);
-			return View();
+			model = dsms.GetInfo(model);
+			return View(model??new tb_sms());
 		}
 
 	}

@@ -73,31 +73,31 @@ namespace DAL
 			strSql.Append("update tb_file set ");
 			if(model.typeid!=null)
 			{
-				setSql.Append( "typeid=@typeid");
+				setSql.Append( "typeid=@typeid,");
 			}
 			if(model.filetypeid!=null)
 			{
-				setSql.Append( "filetypeid=@filetypeid");
+				setSql.Append( "filetypeid=@filetypeid,");
 			}
 			if(model.infoid!=null)
 			{
-				setSql.Append( "infoid=@infoid");
+				setSql.Append( "infoid=@infoid,");
 			}
 			if(!String.IsNullOrEmpty(model.name))
 			{
-				setSql.Append( "name=@name");
+				setSql.Append( "name=@name,");
 			}
 			if(!String.IsNullOrEmpty(model.intro))
 			{
-				setSql.Append( "intro=@intro");
+				setSql.Append( "intro=@intro,");
 			}
 			if(!String.IsNullOrEmpty(model.address))
 			{
-				setSql.Append( "address=@address");
+				setSql.Append( "address=@address,");
 			}
 			if(model.addtime!=null)
 			{
-				setSql.Append( "addtime=@addtime");
+				setSql.Append( "addtime=@addtime,");
 			}
 			strSql.Append(setSql.ToString().TrimEnd(','));
 			strSql.Append(" where id=@id ");
@@ -210,6 +210,21 @@ namespace DAL
 			return list;
 		}
 
+
+		/// <summary>
+		/// 得到一个对象实体
+		/// </summary>
+		public tb_file GetInfo(tb_file model)
+		{
+			StringBuilder strSql = new StringBuilder();
+			strSql.Append("select * from tb_file");
+			strSql.Append("  where id=@id ");
+			using (IDbConnection conn = DapperHelper.OpenConnection())
+			{
+				model = conn.Query <tb_file>(strSql.ToString(), model)?.FirstOrDefault();
+			}
+			return model;
+		}
 		#endregion  Method
 	}
 }
