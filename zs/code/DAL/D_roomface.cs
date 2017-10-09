@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
@@ -9,7 +9,7 @@ using Dapper;
 namespace DAL
 {
 	/// <summary>
-	/// Êı¾İ·ÃÎÊÀà:D_roomface
+	/// æ•°æ®è®¿é—®ç±»:D_roomface
 	/// </summary>
 	public partial class D_roomface
 	{
@@ -18,7 +18,7 @@ namespace DAL
 		#region  Method
 
 		/// <summary>
-		/// ÊÇ·ñ´æÔÚ¸Ã¼ÇÂ¼
+		/// æ˜¯å¦å­˜åœ¨è¯¥è®°å½•
 		/// </summary>
 		public bool Exists(tb_roomface model)
 		{
@@ -40,7 +40,7 @@ namespace DAL
 		}
 
 		/// <summary>
-		/// Ôö¼ÓÒ»ÌõÊı¾İ
+		/// å¢åŠ ä¸€æ¡æ•°æ®
 		/// </summary>
 		public bool Add(tb_roomface model)
 		{
@@ -64,7 +64,7 @@ namespace DAL
 		}
 
 		/// <summary>
-		/// ¸üĞÂÒ»ÌõÊı¾İ
+		/// æ›´æ–°ä¸€æ¡æ•°æ®
 		/// </summary>
 		public bool Update(tb_roomface model)
 		{
@@ -108,7 +108,7 @@ namespace DAL
 		}
 
 		/// <summary>
-		/// É¾³ıÒ»ÌõÊı¾İ
+		/// åˆ é™¤ä¸€æ¡æ•°æ®
 		/// </summary>
 		public bool Delete(tb_roomface model)
 		{
@@ -128,7 +128,7 @@ namespace DAL
 				}
 			}
 		}		/// <summary>
-		/// ÅúÁ¿É¾³ıÊı¾İ
+		/// æ‰¹é‡åˆ é™¤æ•°æ®
 		/// </summary>
 		public bool DeleteList(string idlist )
 		{
@@ -150,7 +150,7 @@ namespace DAL
 		}
 
 		/// <summary>
-		/// »ñµÃÊı¾İÁĞ±í
+		/// è·å¾—æ•°æ®åˆ—è¡¨
 		/// </summary>
 		public List<tb_roomface> GetList(tb_roomface model, ref int total)
 		{
@@ -196,7 +196,7 @@ namespace DAL
 
 
 		/// <summary>
-		/// µÃµ½Ò»¸ö¶ÔÏóÊµÌå
+		/// å¾—åˆ°ä¸€ä¸ªå¯¹è±¡å®ä½“
 		/// </summary>
 		public tb_roomface GetInfo(tb_roomface model)
 		{

@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// ÏØ
+	/// å¿
 	/// </summary>
 	public  class countyController:Controller
 	{
 		D_county dcounty = new D_county();
 		/// <summary>
-		/// ÏØ ÁĞ±í
+		/// å¿ åˆ—è¡¨
 		/// </summary>
 		public ActionResult countyList(tb_county model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ÏØ ±£´æ
+		/// å¿ ä¿å­˜
 		/// </summary>
 		public bool countySave(tb_county model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ÏØ É¾³ı
+		/// å¿ åˆ é™¤
 		/// </summary>
 		public bool countyDelete(tb_county model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ÏØ ÏêÇé
+		/// å¿ è¯¦æƒ…
 		/// </summary>
 		public ActionResult countyInfo(tb_county model)
 		{

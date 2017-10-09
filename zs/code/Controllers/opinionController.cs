@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 意见反馈
+	/// 鎰忚鍙嶉
 	/// </summary>
 	public  class opinionController:Controller
 	{
 		D_opinion dopinion = new D_opinion();
 		/// <summary>
-		/// 意见反馈 列表
+		/// 鎰忚鍙嶉 鍒楄〃
 		/// </summary>
 		public ActionResult opinionList(tb_opinion model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 意见反馈 保存
+		/// 鎰忚鍙嶉 淇濆瓨
 		/// </summary>
 		public bool opinionSave(tb_opinion model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 意见反馈 删除
+		/// 鎰忚鍙嶉 鍒犻櫎
 		/// </summary>
 		public bool opinionDelete(tb_opinion model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 意见反馈 详情
+		/// 鎰忚鍙嶉 璇︽儏
 		/// </summary>
 		public ActionResult opinionInfo(tb_opinion model)
 		{

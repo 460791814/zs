@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// »áÒéÊÒÆÀ¼Û
+	/// ä¼šè®®å®¤è¯„ä»·
 	/// </summary>
 	public  class meetingroomcommentController:Controller
 	{
 		D_meetingroomcomment dmeetingroomcomment = new D_meetingroomcomment();
 		/// <summary>
-		/// »áÒéÊÒÆÀ¼Û ÁĞ±í
+		/// ä¼šè®®å®¤è¯„ä»· åˆ—è¡¨
 		/// </summary>
 		public ActionResult meetingroomcommentList(tb_meetingroomcomment model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// »áÒéÊÒÆÀ¼Û ±£´æ
+		/// ä¼šè®®å®¤è¯„ä»· ä¿å­˜
 		/// </summary>
 		public bool meetingroomcommentSave(tb_meetingroomcomment model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// »áÒéÊÒÆÀ¼Û É¾³ı
+		/// ä¼šè®®å®¤è¯„ä»· åˆ é™¤
 		/// </summary>
 		public bool meetingroomcommentDelete(tb_meetingroomcomment model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// »áÒéÊÒÆÀ¼Û ÏêÇé
+		/// ä¼šè®®å®¤è¯„ä»· è¯¦æƒ…
 		/// </summary>
 		public ActionResult meetingroomcommentInfo(tb_meetingroomcomment model)
 		{

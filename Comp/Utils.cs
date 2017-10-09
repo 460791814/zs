@@ -1521,7 +1521,7 @@ namespace Comp
                 {
                     System.IO.Directory.CreateDirectory(FolderStr);
                 }
-                System.IO.StreamWriter SWriter = new System.IO.StreamWriter(System.IO.Path.Combine(FolderStr, sFileName), false, Encoding.GetEncoding("gb2312"));
+                System.IO.StreamWriter SWriter = new System.IO.StreamWriter(System.IO.Path.Combine(FolderStr, sFileName), false, Encoding.GetEncoding("utf-8"));
                 SWriter.Write(sContent);
                 SWriter.Close();
                 return true;

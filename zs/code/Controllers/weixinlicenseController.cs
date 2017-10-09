@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// Î¢ĞÅ
+	/// å¾®ä¿¡
 	/// </summary>
 	public  class weixinlicenseController:Controller
 	{
 		D_weixinlicense dweixinlicense = new D_weixinlicense();
 		/// <summary>
-		/// Î¢ĞÅ ÁĞ±í
+		/// å¾®ä¿¡ åˆ—è¡¨
 		/// </summary>
 		public ActionResult weixinlicenseList(tb_weixinlicense model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// Î¢ĞÅ ±£´æ
+		/// å¾®ä¿¡ ä¿å­˜
 		/// </summary>
 		public bool weixinlicenseSave(tb_weixinlicense model)
 		{
@@ -38,7 +38,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// Î¢ĞÅ É¾³ı
+		/// å¾®ä¿¡ åˆ é™¤
 		/// </summary>
 		public bool weixinlicenseDelete(tb_weixinlicense model)
 		{
@@ -46,7 +46,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// Î¢ĞÅ ÏêÇé
+		/// å¾®ä¿¡ è¯¦æƒ…
 		/// </summary>
 		public ActionResult weixinlicenseInfo(tb_weixinlicense model)
 		{

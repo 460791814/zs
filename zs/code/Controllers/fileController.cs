@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// ÎÄ¼ş±í
+	/// æ–‡ä»¶è¡¨
 	/// </summary>
 	public  class fileController:Controller
 	{
 		D_file dfile = new D_file();
 		/// <summary>
-		/// ÎÄ¼ş±í ÁĞ±í
+		/// æ–‡ä»¶è¡¨ åˆ—è¡¨
 		/// </summary>
 		public ActionResult fileList(tb_file model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ÎÄ¼ş±í ±£´æ
+		/// æ–‡ä»¶è¡¨ ä¿å­˜
 		/// </summary>
 		public bool fileSave(tb_file model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ÎÄ¼ş±í É¾³ı
+		/// æ–‡ä»¶è¡¨ åˆ é™¤
 		/// </summary>
 		public bool fileDelete(tb_file model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ÎÄ¼ş±í ÏêÇé
+		/// æ–‡ä»¶è¡¨ è¯¦æƒ…
 		/// </summary>
 		public ActionResult fileInfo(tb_file model)
 		{

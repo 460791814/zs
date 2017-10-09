@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 首页 推荐内容
+	/// 棣栭〉 鎺ㄨ崘鍐呭
 	/// </summary>
 	public  class featureController:Controller
 	{
 		D_feature dfeature = new D_feature();
 		/// <summary>
-		/// 首页 推荐内容 列表
+		/// 棣栭〉 鎺ㄨ崘鍐呭 鍒楄〃
 		/// </summary>
 		public ActionResult featureList(tb_feature model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 首页 推荐内容 保存
+		/// 棣栭〉 鎺ㄨ崘鍐呭 淇濆瓨
 		/// </summary>
 		public bool featureSave(tb_feature model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 首页 推荐内容 删除
+		/// 棣栭〉 鎺ㄨ崘鍐呭 鍒犻櫎
 		/// </summary>
 		public bool featureDelete(tb_feature model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 首页 推荐内容 详情
+		/// 棣栭〉 鎺ㄨ崘鍐呭 璇︽儏
 		/// </summary>
 		public ActionResult featureInfo(tb_feature model)
 		{

@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// Ì×²Í
+	/// å¥—é¤
 	/// </summary>
 	public  class comboController:Controller
 	{
 		D_combo dcombo = new D_combo();
 		/// <summary>
-		/// Ì×²Í ÁĞ±í
+		/// å¥—é¤ åˆ—è¡¨
 		/// </summary>
 		public ActionResult comboList(tb_combo model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// Ì×²Í ±£´æ
+		/// å¥—é¤ ä¿å­˜
 		/// </summary>
 		public bool comboSave(tb_combo model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// Ì×²Í É¾³ı
+		/// å¥—é¤ åˆ é™¤
 		/// </summary>
 		public bool comboDelete(tb_combo model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// Ì×²Í ÏêÇé
+		/// å¥—é¤ è¯¦æƒ…
 		/// </summary>
 		public ActionResult comboInfo(tb_combo model)
 		{

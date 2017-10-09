@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// Â¥Óî
+	/// æ¥¼å®‡
 	/// </summary>
 	public  class buildingController:Controller
 	{
 		D_building dbuilding = new D_building();
 		/// <summary>
-		/// Â¥Óî ÁĞ±í
+		/// æ¥¼å®‡ åˆ—è¡¨
 		/// </summary>
 		public ActionResult buildingList(tb_building model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// Â¥Óî ±£´æ
+		/// æ¥¼å®‡ ä¿å­˜
 		/// </summary>
 		public bool buildingSave(tb_building model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// Â¥Óî É¾³ı
+		/// æ¥¼å®‡ åˆ é™¤
 		/// </summary>
 		public bool buildingDelete(tb_building model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// Â¥Óî ÏêÇé
+		/// æ¥¼å®‡ è¯¦æƒ…
 		/// </summary>
 		public ActionResult buildingInfo(tb_building model)
 		{

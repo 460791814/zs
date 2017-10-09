@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// ºô½Ğ¼ÇÂ¼
+	/// å‘¼å«è®°å½•
 	/// </summary>
 	public  class calllogController:Controller
 	{
 		D_calllog dcalllog = new D_calllog();
 		/// <summary>
-		/// ºô½Ğ¼ÇÂ¼ ÁĞ±í
+		/// å‘¼å«è®°å½• åˆ—è¡¨
 		/// </summary>
 		public ActionResult calllogList(tb_calllog model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ºô½Ğ¼ÇÂ¼ ±£´æ
+		/// å‘¼å«è®°å½• ä¿å­˜
 		/// </summary>
 		public bool calllogSave(tb_calllog model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ºô½Ğ¼ÇÂ¼ É¾³ı
+		/// å‘¼å«è®°å½• åˆ é™¤
 		/// </summary>
 		public bool calllogDelete(tb_calllog model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ºô½Ğ¼ÇÂ¼ ÏêÇé
+		/// å‘¼å«è®°å½• è¯¦æƒ…
 		/// </summary>
 		public ActionResult calllogInfo(tb_calllog model)
 		{

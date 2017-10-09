@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 系统用户
+	/// 绯荤粺鐢ㄦ埛
 	/// </summary>
 	public  class sysuserController:Controller
 	{
 		D_sysuser dsysuser = new D_sysuser();
 		/// <summary>
-		/// 系统用户 列表
+		/// 绯荤粺鐢ㄦ埛 鍒楄〃
 		/// </summary>
 		public ActionResult sysuserList(tb_sysuser model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 系统用户 保存
+		/// 绯荤粺鐢ㄦ埛 淇濆瓨
 		/// </summary>
 		public bool sysuserSave(tb_sysuser model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 系统用户 删除
+		/// 绯荤粺鐢ㄦ埛 鍒犻櫎
 		/// </summary>
 		public bool sysuserDelete(tb_sysuser model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 系统用户 详情
+		/// 绯荤粺鐢ㄦ埛 璇︽儏
 		/// </summary>
 		public ActionResult sysuserInfo(tb_sysuser model)
 		{

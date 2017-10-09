@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// È¨ÏŞÄ£¿é¹ØÏµ±í
+	/// æƒé™æ¨¡å—å…³ç³»è¡¨
 	/// </summary>
 	public  class role_moduleController:Controller
 	{
 		D_role_module drole_module = new D_role_module();
 		/// <summary>
-		/// È¨ÏŞÄ£¿é¹ØÏµ±í ÁĞ±í
+		/// æƒé™æ¨¡å—å…³ç³»è¡¨ åˆ—è¡¨
 		/// </summary>
 		public ActionResult role_moduleList(tb_role_module model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// È¨ÏŞÄ£¿é¹ØÏµ±í ±£´æ
+		/// æƒé™æ¨¡å—å…³ç³»è¡¨ ä¿å­˜
 		/// </summary>
 		public bool role_moduleSave(tb_role_module model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// È¨ÏŞÄ£¿é¹ØÏµ±í É¾³ı
+		/// æƒé™æ¨¡å—å…³ç³»è¡¨ åˆ é™¤
 		/// </summary>
 		public bool role_moduleDelete(tb_role_module model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// È¨ÏŞÄ£¿é¹ØÏµ±í ÏêÇé
+		/// æƒé™æ¨¡å—å…³ç³»è¡¨ è¯¦æƒ…
 		/// </summary>
 		public ActionResult role_moduleInfo(tb_role_module model)
 		{

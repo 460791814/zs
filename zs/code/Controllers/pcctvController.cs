@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 省市区县
+	/// 鐪佸競鍖哄幙
 	/// </summary>
 	public  class pcctvController:Controller
 	{
 		D_pcctv dpcctv = new D_pcctv();
 		/// <summary>
-		/// 省市区县 列表
+		/// 鐪佸競鍖哄幙 鍒楄〃
 		/// </summary>
 		public ActionResult pcctvList(tb_pcctv model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 省市区县 保存
+		/// 鐪佸競鍖哄幙 淇濆瓨
 		/// </summary>
 		public bool pcctvSave(tb_pcctv model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 省市区县 删除
+		/// 鐪佸競鍖哄幙 鍒犻櫎
 		/// </summary>
 		public bool pcctvDelete(tb_pcctv model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 省市区县 详情
+		/// 鐪佸競鍖哄幙 璇︽儏
 		/// </summary>
 		public ActionResult pcctvInfo(tb_pcctv model)
 		{

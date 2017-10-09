@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 车位信息
+	/// 杞︿綅淇℃伅
 	/// </summary>
 	public  class parkController:Controller
 	{
 		D_park dpark = new D_park();
 		/// <summary>
-		/// 车位信息 列表
+		/// 杞︿綅淇℃伅 鍒楄〃
 		/// </summary>
 		public ActionResult parkList(tb_park model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 车位信息 保存
+		/// 杞︿綅淇℃伅 淇濆瓨
 		/// </summary>
 		public bool parkSave(tb_park model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 车位信息 删除
+		/// 杞︿綅淇℃伅 鍒犻櫎
 		/// </summary>
 		public bool parkDelete(tb_park model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 车位信息 详情
+		/// 杞︿綅淇℃伅 璇︽儏
 		/// </summary>
 		public ActionResult parkInfo(tb_park model)
 		{

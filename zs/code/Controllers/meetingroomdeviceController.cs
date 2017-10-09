@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// »áÒéÊÒÅäÌ×Éè±¸ÉèÊ©
+	/// ä¼šè®®å®¤é…å¥—è®¾å¤‡è®¾æ–½
 	/// </summary>
 	public  class meetingroomdeviceController:Controller
 	{
 		D_meetingroomdevice dmeetingroomdevice = new D_meetingroomdevice();
 		/// <summary>
-		/// »áÒéÊÒÅäÌ×Éè±¸ÉèÊ© ÁĞ±í
+		/// ä¼šè®®å®¤é…å¥—è®¾å¤‡è®¾æ–½ åˆ—è¡¨
 		/// </summary>
 		public ActionResult meetingroomdeviceList(tb_meetingroomdevice model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// »áÒéÊÒÅäÌ×Éè±¸ÉèÊ© ±£´æ
+		/// ä¼šè®®å®¤é…å¥—è®¾å¤‡è®¾æ–½ ä¿å­˜
 		/// </summary>
 		public bool meetingroomdeviceSave(tb_meetingroomdevice model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// »áÒéÊÒÅäÌ×Éè±¸ÉèÊ© É¾³ı
+		/// ä¼šè®®å®¤é…å¥—è®¾å¤‡è®¾æ–½ åˆ é™¤
 		/// </summary>
 		public bool meetingroomdeviceDelete(tb_meetingroomdevice model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// »áÒéÊÒÅäÌ×Éè±¸ÉèÊ© ÏêÇé
+		/// ä¼šè®®å®¤é…å¥—è®¾å¤‡è®¾æ–½ è¯¦æƒ…
 		/// </summary>
 		public ActionResult meetingroomdeviceInfo(tb_meetingroomdevice model)
 		{

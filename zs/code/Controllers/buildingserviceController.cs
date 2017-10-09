@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 楼宇配套服务
+	/// 妤煎畤閰嶅鏈嶅姟
 	/// </summary>
 	public  class buildingserviceController:Controller
 	{
 		D_buildingservice dbuildingservice = new D_buildingservice();
 		/// <summary>
-		/// 楼宇配套服务 列表
+		/// 妤煎畤閰嶅鏈嶅姟 鍒楄〃
 		/// </summary>
 		public ActionResult buildingserviceList(tb_buildingservice model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 楼宇配套服务 保存
+		/// 妤煎畤閰嶅鏈嶅姟 淇濆瓨
 		/// </summary>
 		public bool buildingserviceSave(tb_buildingservice model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 楼宇配套服务 删除
+		/// 妤煎畤閰嶅鏈嶅姟 鍒犻櫎
 		/// </summary>
 		public bool buildingserviceDelete(tb_buildingservice model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 楼宇配套服务 详情
+		/// 妤煎畤閰嶅鏈嶅姟 璇︽儏
 		/// </summary>
 		public ActionResult buildingserviceInfo(tb_buildingservice model)
 		{

@@ -30,9 +30,9 @@ namespace zs.Controllers
         // GET: ZS
         public ActionResult Index()
         {
-            // CreateDal();
+             //CreateDal();
             // CreateModel();
-            //  CreateController();
+             // CreateController();
             CreateListAndInfo();
             return View();
         }
@@ -121,8 +121,8 @@ namespace zs.Controllers
 
         public string CreateListAndInfo()
         {
-            string listfilePath =ConfigurationManager.AppSettings["TemplateDir"] + "list.cshtml";
-            string infofilePath =ConfigurationManager.AppSettings["TemplateDir"] + "info.cshtml";
+            string listfilePath =ConfigurationManager.AppSettings["TemplateDir"] + "list2.cshtml";
+            string infofilePath =ConfigurationManager.AppSettings["TemplateDir"] + "info2.cshtml";
             BuilderMvcView builderMvcView = new BuilderMvcView();
             var tables = db.GetTableViews(dbName);
             if (tables == null)
@@ -151,18 +151,18 @@ namespace zs.Controllers
                 listhtml = listhtml.Replace("<#list:title#>", builderMvcView.TableDescription);
                 listhtml = listhtml.Replace("<#list:infourl#>", builderMvcView.CreateEditUrl());
                 listhtml = listhtml.Replace("<#list:table#>", builderMvcView.CreateTable());
-                Utils.CreateFile("/code/Views/" + actionName, actionName + "List.cshtml", listhtml);
+                Utils.CreateFile("/code/Views2/" + actionName, actionName + "List.cshtml", listhtml);
                 //生成详情
                 string infohtml = Utils.ReadFile(infofilePath);
                 infohtml = infohtml.Replace("<#info:modelname#>", "Model."+item);
                 infohtml = infohtml.Replace("<#info:title#>", builderMvcView.TableDescription);
                 infohtml = infohtml.Replace("<#info:listurl#>", builderMvcView.CreateListUrl());
-
+                infohtml = infohtml.Replace("<#list:infourl#>", builderMvcView.CreateEditUrl());
                 infohtml = infohtml.Replace("<#info:saveurl#>", builderMvcView.CreateSaveUrl());
                 infohtml = infohtml.Replace("<#info:form#>", builderMvcView.CreateInfoView());
 
 
-                Utils.CreateFile("/code/Views/" + actionName, actionName + "Info.cshtml", infohtml);
+                Utils.CreateFile("/code/Views2/" + actionName, actionName + "Info.cshtml", infohtml);
 
             }
             return "生成成功";

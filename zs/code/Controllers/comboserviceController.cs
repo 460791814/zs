@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 套餐服务内容
+	/// 濂楅鏈嶅姟鍐呭
 	/// </summary>
 	public  class comboserviceController:Controller
 	{
 		D_comboservice dcomboservice = new D_comboservice();
 		/// <summary>
-		/// 套餐服务内容 列表
+		/// 濂楅鏈嶅姟鍐呭 鍒楄〃
 		/// </summary>
 		public ActionResult comboserviceList(tb_comboservice model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 套餐服务内容 保存
+		/// 濂楅鏈嶅姟鍐呭 淇濆瓨
 		/// </summary>
 		public bool comboserviceSave(tb_comboservice model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 套餐服务内容 删除
+		/// 濂楅鏈嶅姟鍐呭 鍒犻櫎
 		/// </summary>
 		public bool comboserviceDelete(tb_comboservice model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 套餐服务内容 详情
+		/// 濂楅鏈嶅姟鍐呭 璇︽儏
 		/// </summary>
 		public ActionResult comboserviceInfo(tb_comboservice model)
 		{

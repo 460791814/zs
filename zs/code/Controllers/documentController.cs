@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 内容管理
+	/// 鍐呭绠＄悊
 	/// </summary>
 	public  class documentController:Controller
 	{
 		D_document ddocument = new D_document();
 		/// <summary>
-		/// 内容管理 列表
+		/// 鍐呭绠＄悊 鍒楄〃
 		/// </summary>
 		public ActionResult documentList(tb_document model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 内容管理 保存
+		/// 鍐呭绠＄悊 淇濆瓨
 		/// </summary>
 		public bool documentSave(tb_document model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 内容管理 删除
+		/// 鍐呭绠＄悊 鍒犻櫎
 		/// </summary>
 		public bool documentDelete(tb_document model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 内容管理 详情
+		/// 鍐呭绠＄悊 璇︽儏
 		/// </summary>
 		public ActionResult documentInfo(tb_document model)
 		{

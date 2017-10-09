@@ -1,4 +1,4 @@
-@model Model.tb_operationlog
+ï»¿@model Model.tb_operationlog
 <div class="main-content">
     <div class="main-content-inner">
         <div class="page-content main-content">
@@ -6,13 +6,13 @@
                 <ul class="breadcrumb">
                     <li>
                         <i class="ace-icon fa fa-home home-icon"></i>
-                        <a href="/">Ê×Ò³</a>
+                        <a href="/">é¦–é¡µ</a>
                     </li>
                     <li>
-                        <a href="/operationlog/operationlogList">²Ù×÷ÈÕÖ¾</a>
+                        <a href="/operationlog/operationlogList">æ“ä½œæ—¥å¿—</a>
                     </li>
                     <li class="active">
-                        ²Ù×÷ÈÕÖ¾ÏêÇé
+                        æ“ä½œæ—¥å¿—è¯¦æƒ…
 </li>
                 </ul>
                 <!-- /.breadcrumb -->
@@ -22,7 +22,7 @@
                 <div class="col-xs-12">
                     <div class="widget-box">
                         <div class="widget-header">
-                            <h4 class="widget-title">»ù±¾ĞÅÏ¢</h4>
+                            <h4 class="widget-title">åŸºæœ¬ä¿¡æ¯</h4>
 
                             <div class="widget-toolbar">
                                 <a href="#" data-action="collapse">
@@ -36,22 +36,22 @@
                                 	<form class="form-horizontal" role="form">
 		<input type="hidden" name="id" value="@Model.id" />
 		<div class="form-group">
-			<label class="col-xs-2 control-label " >ÓÃ»§Ãû</label>
+			<label class="col-xs-2 control-label " >ç”¨æˆ·å</label>
 			<div class="col-xs-4"><input type="text" id="username" name="username" class="col-xs-10 col-sm-10 " value="@Model.username"></div>
-			<label class="col-xs-2 control-label " >À´·ÃIP</label>
+			<label class="col-xs-2 control-label " >æ¥è®¿IP</label>
 			<div class="col-xs-4"><input type="text" id="ip" name="ip" class="col-xs-10 col-sm-10 " value="@Model.ip"></div>
 		</div>
 		<div class="form-group">
-			<label class="col-xs-2 control-label " >²Ù×÷¶ÔÏó</label>
+			<label class="col-xs-2 control-label " >æ“ä½œå¯¹è±¡</label>
 			<div class="col-xs-4"><input type="text" id="target" name="target" class="col-xs-10 col-sm-10 " value="@Model.target"></div>
-			<label class="col-xs-2 control-label " >¶¯×÷</label>
+			<label class="col-xs-2 control-label " >åŠ¨ä½œ</label>
 			<div class="col-xs-4"><input type="text" id="action" name="action" class="col-xs-10 col-sm-10 " value="@Model.action"></div>
 		</div>
 		<div class="form-group">
-			<label class="col-xs-2 control-label " >²Ù×÷Ê±¼ä</label>
+			<label class="col-xs-2 control-label " >æ“ä½œæ—¶é—´</label>
 			<div class="col-xs-4"><input type="text" id="addtime" name="addtime" class="col-xs-10 col-sm-10 " value="@Model.addtime"></div>
 		</div>
-		<div class="clearfix form-actions"><div class="col-md-offset-5 col-md-9"><button class="btn btn-info" type="button" onclick="save()"><i class="ace-icon fa fa-check bigger-110"></i>Save£¨±£´æ£©</button>
+		<div class="clearfix form-actions"><div class="col-md-offset-5 col-md-9"><button class="btn btn-info" type="button" onclick="save()"><i class="ace-icon fa fa-check bigger-110"></i>Saveï¼ˆä¿å­˜ï¼‰</button>
 	</form>
 
                             </div>
@@ -69,11 +69,11 @@
         var params = $("form").serializeArray();
         $.post("/operationlog/operationlogSave", params, function (data) {
             if (data == "True") {
-                alert("±£´æ³É¹¦£¡");
+                alert("ä¿å­˜æˆåŠŸï¼");
                 window.location.href = document.referrer;
             } else {
-                //ÏûÏ¢
-                alert("±£´æÊ§°Ü£¡");
+                //æ¶ˆæ¯
+                alert("ä¿å­˜å¤±è´¥ï¼");
             }
         });
         return false;

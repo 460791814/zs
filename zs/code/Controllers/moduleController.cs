@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 权限模块
+	/// 鏉冮檺妯″潡
 	/// </summary>
 	public  class moduleController:Controller
 	{
 		D_module dmodule = new D_module();
 		/// <summary>
-		/// 权限模块 列表
+		/// 鏉冮檺妯″潡 鍒楄〃
 		/// </summary>
 		public ActionResult moduleList(tb_module model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 权限模块 保存
+		/// 鏉冮檺妯″潡 淇濆瓨
 		/// </summary>
 		public bool moduleSave(tb_module model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 权限模块 删除
+		/// 鏉冮檺妯″潡 鍒犻櫎
 		/// </summary>
 		public bool moduleDelete(tb_module model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 权限模块 详情
+		/// 鏉冮檺妯″潡 璇︽儏
 		/// </summary>
 		public ActionResult moduleInfo(tb_module model)
 		{

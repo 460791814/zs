@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 操作日志
+	/// 鎿嶄綔鏃ュ織
 	/// </summary>
 	public  class operationlogController:Controller
 	{
 		D_operationlog doperationlog = new D_operationlog();
 		/// <summary>
-		/// 操作日志 列表
+		/// 鎿嶄綔鏃ュ織 鍒楄〃
 		/// </summary>
 		public ActionResult operationlogList(tb_operationlog model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 操作日志 保存
+		/// 鎿嶄綔鏃ュ織 淇濆瓨
 		/// </summary>
 		public bool operationlogSave(tb_operationlog model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 操作日志 删除
+		/// 鎿嶄綔鏃ュ織 鍒犻櫎
 		/// </summary>
 		public bool operationlogDelete(tb_operationlog model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 操作日志 详情
+		/// 鎿嶄綔鏃ュ織 璇︽儏
 		/// </summary>
 		public ActionResult operationlogInfo(tb_operationlog model)
 		{

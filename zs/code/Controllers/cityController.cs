@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	///  –
+	/// Â∏Ç
 	/// </summary>
 	public  class cityController:Controller
 	{
 		D_city dcity = new D_city();
 		/// <summary>
-		///  – ¡–±Ì
+		/// Â∏Ç ÂàóË°®
 		/// </summary>
 		public ActionResult cityList(tb_city model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		///  – ±£¥Ê
+		/// Â∏Ç ‰øùÂ≠ò
 		/// </summary>
 		public bool citySave(tb_city model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		///  – …æ≥˝
+		/// Â∏Ç Âà†Èô§
 		/// </summary>
 		public bool cityDelete(tb_city model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		///  – œÍ«È
+		/// Â∏Ç ËØ¶ÊÉÖ
 		/// </summary>
 		public ActionResult cityInfo(tb_city model)
 		{

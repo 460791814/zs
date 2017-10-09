@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,7 +15,7 @@ namespace cnooc.property.manage.Controllers
 	{
 		D_qqlicense dqqlicense = new D_qqlicense();
 		/// <summary>
-		/// qq 列表
+		/// qq 鍒楄〃
 		/// </summary>
 		public ActionResult qqlicenseList(tb_qqlicense model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// qq 保存
+		/// qq 淇濆瓨
 		/// </summary>
 		public bool qqlicenseSave(tb_qqlicense model)
 		{
@@ -38,7 +38,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// qq 删除
+		/// qq 鍒犻櫎
 		/// </summary>
 		public bool qqlicenseDelete(tb_qqlicense model)
 		{
@@ -46,7 +46,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// qq 详情
+		/// qq 璇︽儏
 		/// </summary>
 		public ActionResult qqlicenseInfo(tb_qqlicense model)
 		{

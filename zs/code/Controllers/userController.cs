@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// ¿Í»§±í
+	/// å®¢æˆ·è¡¨
 	/// </summary>
 	public  class userController:Controller
 	{
 		D_user duser = new D_user();
 		/// <summary>
-		/// ¿Í»§±í ÁĞ±í
+		/// å®¢æˆ·è¡¨ åˆ—è¡¨
 		/// </summary>
 		public ActionResult userList(tb_user model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ¿Í»§±í ±£´æ
+		/// å®¢æˆ·è¡¨ ä¿å­˜
 		/// </summary>
 		public bool userSave(tb_user model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ¿Í»§±í É¾³ı
+		/// å®¢æˆ·è¡¨ åˆ é™¤
 		/// </summary>
 		public bool userDelete(tb_user model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ¿Í»§±í ÏêÇé
+		/// å®¢æˆ·è¡¨ è¯¦æƒ…
 		/// </summary>
 		public ActionResult userInfo(tb_user model)
 		{

@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 收费标准
+	/// 鏀惰垂鏍囧噯
 	/// </summary>
 	public  class restaurantfeeController:Controller
 	{
 		D_restaurantfee drestaurantfee = new D_restaurantfee();
 		/// <summary>
-		/// 收费标准 列表
+		/// 鏀惰垂鏍囧噯 鍒楄〃
 		/// </summary>
 		public ActionResult restaurantfeeList(tb_restaurantfee model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 收费标准 保存
+		/// 鏀惰垂鏍囧噯 淇濆瓨
 		/// </summary>
 		public bool restaurantfeeSave(tb_restaurantfee model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 收费标准 删除
+		/// 鏀惰垂鏍囧噯 鍒犻櫎
 		/// </summary>
 		public bool restaurantfeeDelete(tb_restaurantfee model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 收费标准 详情
+		/// 鏀惰垂鏍囧噯 璇︽儏
 		/// </summary>
 		public ActionResult restaurantfeeInfo(tb_restaurantfee model)
 		{

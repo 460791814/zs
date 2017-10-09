@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 我的收藏
+	/// 鎴戠殑鏀惰棌
 	/// </summary>
 	public  class favoriteController:Controller
 	{
 		D_favorite dfavorite = new D_favorite();
 		/// <summary>
-		/// 我的收藏 列表
+		/// 鎴戠殑鏀惰棌 鍒楄〃
 		/// </summary>
 		public ActionResult favoriteList(tb_favorite model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 我的收藏 保存
+		/// 鎴戠殑鏀惰棌 淇濆瓨
 		/// </summary>
 		public bool favoriteSave(tb_favorite model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 我的收藏 删除
+		/// 鎴戠殑鏀惰棌 鍒犻櫎
 		/// </summary>
 		public bool favoriteDelete(tb_favorite model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 我的收藏 详情
+		/// 鎴戠殑鏀惰棌 璇︽儏
 		/// </summary>
 		public ActionResult favoriteInfo(tb_favorite model)
 		{

@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 会议服务 会议预定管理
+	/// 浼氳鏈嶅姟 浼氳棰勫畾绠＄悊
 	/// </summary>
 	public  class meetingorderController:Controller
 	{
 		D_meetingorder dmeetingorder = new D_meetingorder();
 		/// <summary>
-		/// 会议服务 会议预定管理 列表
+		/// 浼氳鏈嶅姟 浼氳棰勫畾绠＄悊 鍒楄〃
 		/// </summary>
 		public ActionResult meetingorderList(tb_meetingorder model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 会议服务 会议预定管理 保存
+		/// 浼氳鏈嶅姟 浼氳棰勫畾绠＄悊 淇濆瓨
 		/// </summary>
 		public bool meetingorderSave(tb_meetingorder model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 会议服务 会议预定管理 删除
+		/// 浼氳鏈嶅姟 浼氳棰勫畾绠＄悊 鍒犻櫎
 		/// </summary>
 		public bool meetingorderDelete(tb_meetingorder model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 会议服务 会议预定管理 详情
+		/// 浼氳鏈嶅姟 浼氳棰勫畾绠＄悊 璇︽儏
 		/// </summary>
 		public ActionResult meetingorderInfo(tb_meetingorder model)
 		{

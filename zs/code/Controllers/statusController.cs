@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 基础数据
+	/// 鍩虹鏁版嵁
 	/// </summary>
 	public  class statusController:Controller
 	{
 		D_status dstatus = new D_status();
 		/// <summary>
-		/// 基础数据 列表
+		/// 鍩虹鏁版嵁 鍒楄〃
 		/// </summary>
 		public ActionResult statusList(tb_status model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 基础数据 保存
+		/// 鍩虹鏁版嵁 淇濆瓨
 		/// </summary>
 		public bool statusSave(tb_status model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 基础数据 删除
+		/// 鍩虹鏁版嵁 鍒犻櫎
 		/// </summary>
 		public bool statusDelete(tb_status model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 基础数据 详情
+		/// 鍩虹鏁版嵁 璇︽儏
 		/// </summary>
 		public ActionResult statusInfo(tb_status model)
 		{

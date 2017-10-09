@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 登陆日志
+	/// 鐧婚檰鏃ュ織
 	/// </summary>
 	public  class loginlogController:Controller
 	{
 		D_loginlog dloginlog = new D_loginlog();
 		/// <summary>
-		/// 登陆日志 列表
+		/// 鐧婚檰鏃ュ織 鍒楄〃
 		/// </summary>
 		public ActionResult loginlogList(tb_loginlog model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 登陆日志 保存
+		/// 鐧婚檰鏃ュ織 淇濆瓨
 		/// </summary>
 		public bool loginlogSave(tb_loginlog model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 登陆日志 删除
+		/// 鐧婚檰鏃ュ織 鍒犻櫎
 		/// </summary>
 		public bool loginlogDelete(tb_loginlog model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 登陆日志 详情
+		/// 鐧婚檰鏃ュ織 璇︽儏
 		/// </summary>
 		public ActionResult loginlogInfo(tb_loginlog model)
 		{

@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 其他配套设备设施
+	/// 鍏朵粬閰嶅璁惧璁炬柦
 	/// </summary>
 	public  class roomdeviceController:Controller
 	{
 		D_roomdevice droomdevice = new D_roomdevice();
 		/// <summary>
-		/// 其他配套设备设施 列表
+		/// 鍏朵粬閰嶅璁惧璁炬柦 鍒楄〃
 		/// </summary>
 		public ActionResult roomdeviceList(tb_roomdevice model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 其他配套设备设施 保存
+		/// 鍏朵粬閰嶅璁惧璁炬柦 淇濆瓨
 		/// </summary>
 		public bool roomdeviceSave(tb_roomdevice model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 其他配套设备设施 删除
+		/// 鍏朵粬閰嶅璁惧璁炬柦 鍒犻櫎
 		/// </summary>
 		public bool roomdeviceDelete(tb_roomdevice model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 其他配套设备设施 详情
+		/// 鍏朵粬閰嶅璁惧璁炬柦 璇︽儏
 		/// </summary>
 		public ActionResult roomdeviceInfo(tb_roomdevice model)
 		{

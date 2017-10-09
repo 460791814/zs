@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// ²ÍÌü»·¾³½éÉÜ
+	/// é¤å…ç¯å¢ƒä»‹ç»
 	/// </summary>
 	public  class restaurantenvironmentController:Controller
 	{
 		D_restaurantenvironment drestaurantenvironment = new D_restaurantenvironment();
 		/// <summary>
-		/// ²ÍÌü»·¾³½éÉÜ ÁĞ±í
+		/// é¤å…ç¯å¢ƒä»‹ç» åˆ—è¡¨
 		/// </summary>
 		public ActionResult restaurantenvironmentList(tb_restaurantenvironment model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ²ÍÌü»·¾³½éÉÜ ±£´æ
+		/// é¤å…ç¯å¢ƒä»‹ç» ä¿å­˜
 		/// </summary>
 		public bool restaurantenvironmentSave(tb_restaurantenvironment model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ²ÍÌü»·¾³½éÉÜ É¾³ı
+		/// é¤å…ç¯å¢ƒä»‹ç» åˆ é™¤
 		/// </summary>
 		public bool restaurantenvironmentDelete(tb_restaurantenvironment model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ²ÍÌü»·¾³½éÉÜ ÏêÇé
+		/// é¤å…ç¯å¢ƒä»‹ç» è¯¦æƒ…
 		/// </summary>
 		public ActionResult restaurantenvironmentInfo(tb_restaurantenvironment model)
 		{

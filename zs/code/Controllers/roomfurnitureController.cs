@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 家具
+	/// 瀹跺叿
 	/// </summary>
 	public  class roomfurnitureController:Controller
 	{
 		D_roomfurniture droomfurniture = new D_roomfurniture();
 		/// <summary>
-		/// 家具 列表
+		/// 瀹跺叿 鍒楄〃
 		/// </summary>
 		public ActionResult roomfurnitureList(tb_roomfurniture model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 家具 保存
+		/// 瀹跺叿 淇濆瓨
 		/// </summary>
 		public bool roomfurnitureSave(tb_roomfurniture model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 家具 删除
+		/// 瀹跺叿 鍒犻櫎
 		/// </summary>
 		public bool roomfurnitureDelete(tb_roomfurniture model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 家具 详情
+		/// 瀹跺叿 璇︽儏
 		/// </summary>
 		public ActionResult roomfurnitureInfo(tb_roomfurniture model)
 		{

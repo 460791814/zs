@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// »áÒéÊÒ¹ÜÀí
+	/// ä¼šè®®å®¤ç®¡ç†
 	/// </summary>
 	public  class meetingroomController:Controller
 	{
 		D_meetingroom dmeetingroom = new D_meetingroom();
 		/// <summary>
-		/// »áÒéÊÒ¹ÜÀí ÁĞ±í
+		/// ä¼šè®®å®¤ç®¡ç† åˆ—è¡¨
 		/// </summary>
 		public ActionResult meetingroomList(tb_meetingroom model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// »áÒéÊÒ¹ÜÀí ±£´æ
+		/// ä¼šè®®å®¤ç®¡ç† ä¿å­˜
 		/// </summary>
 		public bool meetingroomSave(tb_meetingroom model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// »áÒéÊÒ¹ÜÀí É¾³ı
+		/// ä¼šè®®å®¤ç®¡ç† åˆ é™¤
 		/// </summary>
 		public bool meetingroomDelete(tb_meetingroom model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// »áÒéÊÒ¹ÜÀí ÏêÇé
+		/// ä¼šè®®å®¤ç®¡ç† è¯¦æƒ…
 		/// </summary>
 		public ActionResult meetingroomInfo(tb_meetingroom model)
 		{

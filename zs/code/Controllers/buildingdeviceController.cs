@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// Â¥ÓîÅäÌ×Éè±¸
+	/// æ¥¼å®‡é…å¥—è®¾å¤‡
 	/// </summary>
 	public  class buildingdeviceController:Controller
 	{
 		D_buildingdevice dbuildingdevice = new D_buildingdevice();
 		/// <summary>
-		/// Â¥ÓîÅäÌ×Éè±¸ ÁĞ±í
+		/// æ¥¼å®‡é…å¥—è®¾å¤‡ åˆ—è¡¨
 		/// </summary>
 		public ActionResult buildingdeviceList(tb_buildingdevice model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// Â¥ÓîÅäÌ×Éè±¸ ±£´æ
+		/// æ¥¼å®‡é…å¥—è®¾å¤‡ ä¿å­˜
 		/// </summary>
 		public bool buildingdeviceSave(tb_buildingdevice model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// Â¥ÓîÅäÌ×Éè±¸ É¾³ı
+		/// æ¥¼å®‡é…å¥—è®¾å¤‡ åˆ é™¤
 		/// </summary>
 		public bool buildingdeviceDelete(tb_buildingdevice model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// Â¥ÓîÅäÌ×Éè±¸ ÏêÇé
+		/// æ¥¼å®‡é…å¥—è®¾å¤‡ è¯¦æƒ…
 		/// </summary>
 		public ActionResult buildingdeviceInfo(tb_buildingdevice model)
 		{

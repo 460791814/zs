@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// ÊÖ»ú¶ÌĞÅÑéÖ¤Âë
+	/// æ‰‹æœºçŸ­ä¿¡éªŒè¯ç 
 	/// </summary>
 	public  class smsController:Controller
 	{
 		D_sms dsms = new D_sms();
 		/// <summary>
-		/// ÊÖ»ú¶ÌĞÅÑéÖ¤Âë ÁĞ±í
+		/// æ‰‹æœºçŸ­ä¿¡éªŒè¯ç  åˆ—è¡¨
 		/// </summary>
 		public ActionResult smsList(tb_sms model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ÊÖ»ú¶ÌĞÅÑéÖ¤Âë ±£´æ
+		/// æ‰‹æœºçŸ­ä¿¡éªŒè¯ç  ä¿å­˜
 		/// </summary>
 		public bool smsSave(tb_sms model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ÊÖ»ú¶ÌĞÅÑéÖ¤Âë É¾³ı
+		/// æ‰‹æœºçŸ­ä¿¡éªŒè¯ç  åˆ é™¤
 		/// </summary>
 		public bool smsDelete(tb_sms model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ÊÖ»ú¶ÌĞÅÑéÖ¤Âë ÏêÇé
+		/// æ‰‹æœºçŸ­ä¿¡éªŒè¯ç  è¯¦æƒ…
 		/// </summary>
 		public ActionResult smsInfo(tb_sms model)
 		{

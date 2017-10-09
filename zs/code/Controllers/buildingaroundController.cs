@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// ÖÜ±ßÅäÌ×½éÉÜ
+	/// å‘¨è¾¹é…å¥—ä»‹ç»
 	/// </summary>
 	public  class buildingaroundController:Controller
 	{
 		D_buildingaround dbuildingaround = new D_buildingaround();
 		/// <summary>
-		/// ÖÜ±ßÅäÌ×½éÉÜ ÁĞ±í
+		/// å‘¨è¾¹é…å¥—ä»‹ç» åˆ—è¡¨
 		/// </summary>
 		public ActionResult buildingaroundList(tb_buildingaround model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ÖÜ±ßÅäÌ×½éÉÜ ±£´æ
+		/// å‘¨è¾¹é…å¥—ä»‹ç» ä¿å­˜
 		/// </summary>
 		public bool buildingaroundSave(tb_buildingaround model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ÖÜ±ßÅäÌ×½éÉÜ É¾³ı
+		/// å‘¨è¾¹é…å¥—ä»‹ç» åˆ é™¤
 		/// </summary>
 		public bool buildingaroundDelete(tb_buildingaround model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ÖÜ±ßÅäÌ×½éÉÜ ÏêÇé
+		/// å‘¨è¾¹é…å¥—ä»‹ç» è¯¦æƒ…
 		/// </summary>
 		public ActionResult buildingaroundInfo(tb_buildingaround model)
 		{

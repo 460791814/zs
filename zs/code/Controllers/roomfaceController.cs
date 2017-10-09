@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// ¥��չʾͼ
+	/// 楼层展示图
 	/// </summary>
 	public  class roomfaceController:Controller
 	{
 		D_roomface droomface = new D_roomface();
 		/// <summary>
-		/// ¥��չʾͼ �б�
+		/// 楼层展示图 列表
 		/// </summary>
 		public ActionResult roomfaceList(tb_roomface model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ¥��չʾͼ ����
+		/// 楼层展示图 保存
 		/// </summary>
 		public bool roomfaceSave(tb_roomface model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ¥��չʾͼ ɾ��
+		/// 楼层展示图 删除
 		/// </summary>
 		public bool roomfaceDelete(tb_roomface model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ¥��չʾͼ ����
+		/// 楼层展示图 详情
 		/// </summary>
 		public ActionResult roomfaceInfo(tb_roomface model)
 		{

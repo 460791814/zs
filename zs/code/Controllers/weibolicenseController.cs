@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// Î¢²©
+	/// å¾®åš
 	/// </summary>
 	public  class weibolicenseController:Controller
 	{
 		D_weibolicense dweibolicense = new D_weibolicense();
 		/// <summary>
-		/// Î¢²© ÁĞ±í
+		/// å¾®åš åˆ—è¡¨
 		/// </summary>
 		public ActionResult weibolicenseList(tb_weibolicense model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// Î¢²© ±£´æ
+		/// å¾®åš ä¿å­˜
 		/// </summary>
 		public bool weibolicenseSave(tb_weibolicense model)
 		{
@@ -38,7 +38,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// Î¢²© É¾³ı
+		/// å¾®åš åˆ é™¤
 		/// </summary>
 		public bool weibolicenseDelete(tb_weibolicense model)
 		{
@@ -46,7 +46,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// Î¢²© ÏêÇé
+		/// å¾®åš è¯¦æƒ…
 		/// </summary>
 		public ActionResult weibolicenseInfo(tb_weibolicense model)
 		{

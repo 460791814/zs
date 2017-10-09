@@ -135,6 +135,8 @@
     <Content Include="datamap\DatatypeMap.cfg" />
     <Content Include="Template\rzxt\info.cshtml" />
     <Content Include="Template\rzxt\list.cshtml" />
+    <Content Include="Template\rzxt\list2.cshtml" />
+    <Content Include="Template\rzxt\info2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

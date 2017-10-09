@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// App用户登陆Token
+	/// App鐢ㄦ埛鐧婚檰Token
 	/// </summary>
 	public  class appusertokenController:Controller
 	{
 		D_appusertoken dappusertoken = new D_appusertoken();
 		/// <summary>
-		/// App用户登陆Token 列表
+		/// App鐢ㄦ埛鐧婚檰Token 鍒楄〃
 		/// </summary>
 		public ActionResult appusertokenList(tb_appusertoken model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// App用户登陆Token 保存
+		/// App鐢ㄦ埛鐧婚檰Token 淇濆瓨
 		/// </summary>
 		public bool appusertokenSave(tb_appusertoken model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// App用户登陆Token 删除
+		/// App鐢ㄦ埛鐧婚檰Token 鍒犻櫎
 		/// </summary>
 		public bool appusertokenDelete(tb_appusertoken model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// App用户登陆Token 详情
+		/// App鐢ㄦ埛鐧婚檰Token 璇︽儏
 		/// </summary>
 		public ActionResult appusertokenInfo(tb_appusertoken model)
 		{

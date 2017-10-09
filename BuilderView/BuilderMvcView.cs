@@ -90,7 +90,7 @@ namespace BuilderView
         {
             StringPlus stringPlus = new StringPlus();
             stringPlus.AppendSpaceLine(3, "@{");
-            stringPlus.AppendSpaceLine(4, "var " + ActionName + "List = ViewBag.list as List<" + ModelName + ">;");
+            stringPlus.AppendSpaceLine(4, "var " + ActionName + "List = ViewBag." + ActionName + "List as List<" + ModelName + ">;");
             stringPlus.AppendSpaceLine(4, " if (" + ActionName + "List != null && " + ActionName + "List.Count > 0)");
             stringPlus.AppendSpaceLine(4, "{");
 

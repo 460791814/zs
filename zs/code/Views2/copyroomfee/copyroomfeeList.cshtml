@@ -1,0 +1,116 @@
+﻿@using Model;
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    @{ Html.RenderPartial("_Link"); }
+    <style>
+        table {
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body style="overflow-x:hidden;background-color: #FFF;">
+
+    <div class="widget-body">
+        <div class="widget-main">
+            <div class="col-xs-5">
+            </div>
+            <div class="col-xs-7">
+                <div class="input-group pull-right">
+                    <span class="input-group-btn">
+                        <a class="btn btn-success btn-sm pull-right" href="javascript:void(0)" onclick="edit('/copyroomfee/copyroomfeeInfo')">
+                            <span class="ace-icon fa fa-pencil-square-o icon-on-right bigger-110"></span> 新增
+                        </a>
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <div class="clearfix">
+                        <div class="pull-left tableTools-container"></div>
+                    </div>
+                    <div class="table-responsive">
+                        	<table class="table table-striped table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>序号</th>
+				<th>文印室id</th>
+				<th>名称</th>
+				<th>介绍</th>
+				<th>价格</th>
+				<th>操作</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			@{
+				var copyroomfeeList = ViewBag.list as List<tb_copyroomfee>;
+				 if (copyroomfeeList != null && copyroomfeeList.Count > 0)
+				{
+					for (int i = 0; i < copyroomfeeList.Count; i++)
+					{
+						<tr>
+							<td>@(i+1)</td>
+							<td>@copyroomfeeList[i].copyroomid</td>
+							<td>@copyroomfeeList[i].name</td>
+							<td>@copyroomfeeList[i].intro</td>
+							<td>@copyroomfeeList[i].fee</td>
+							<td>
+								<div class="hidden-sm hidden-xs action-buttons">
+									<a class="green" href="javascript: void(0)" onclick="edit('/copyroomfee/copyroomfeeInfo?id=@copyroomfeeList[i].id')" ><i class="ace-icon fa fa-pencil bigger-130"></i>编辑</a>
+									<a class="red" href="javascript: void(0)" onclick="del('/copyroomfee/copyroomfeeDelete?id=@copyroomfeeList[i].id')" ><i class="ace-icon fa fa-trash-o bigger-130"></i>删除</a>
+								</div>
+							</td>
+						</tr>
+					}
+				}
+			}
+
+		</tbody>
+	</table>
+
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function del(url) {
+            if (!confirm("确认删除？")) {
+                return false;
+            }
+            $.post(url, null, function (data) {
+                if (data == "True") {
+                    window.location.reload();
+                } else {
+                    alert("删除失败！")
+                }
+            });
+            return false;
+        }
+        function edit(url) {
+            parent.window.location.href = url;
+        }
+        function search() {
+            var params = $("form").serializeArray();
+            var values = "";
+            for (x in params) {
+                values += "&" + params[x].name + "=" + params[x].value;
+            }
+            window.location.href = window.location.pathname + "?" + values;
+        }
+    </script>
+</body>
+</html>

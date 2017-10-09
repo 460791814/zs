@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 文印设计
+	/// 鏂囧嵃璁捐
 	/// </summary>
 	public  class copyroomController:Controller
 	{
 		D_copyroom dcopyroom = new D_copyroom();
 		/// <summary>
-		/// 文印设计 列表
+		/// 鏂囧嵃璁捐 鍒楄〃
 		/// </summary>
 		public ActionResult copyroomList(tb_copyroom model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 文印设计 保存
+		/// 鏂囧嵃璁捐 淇濆瓨
 		/// </summary>
 		public bool copyroomSave(tb_copyroom model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 文印设计 删除
+		/// 鏂囧嵃璁捐 鍒犻櫎
 		/// </summary>
 		public bool copyroomDelete(tb_copyroom model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 文印设计 详情
+		/// 鏂囧嵃璁捐 璇︽儏
 		/// </summary>
 		public ActionResult copyroomInfo(tb_copyroom model)
 		{

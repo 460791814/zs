@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 餐饮美食
+	/// 椁愰ギ缇庨
 	/// </summary>
 	public  class restaurantController:Controller
 	{
 		D_restaurant drestaurant = new D_restaurant();
 		/// <summary>
-		/// 餐饮美食 列表
+		/// 椁愰ギ缇庨 鍒楄〃
 		/// </summary>
 		public ActionResult restaurantList(tb_restaurant model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 餐饮美食 保存
+		/// 椁愰ギ缇庨 淇濆瓨
 		/// </summary>
 		public bool restaurantSave(tb_restaurant model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 餐饮美食 删除
+		/// 椁愰ギ缇庨 鍒犻櫎
 		/// </summary>
 		public bool restaurantDelete(tb_restaurant model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 餐饮美食 详情
+		/// 椁愰ギ缇庨 璇︽儏
 		/// </summary>
 		public ActionResult restaurantInfo(tb_restaurant model)
 		{

@@ -1,4 +1,4 @@
-@model Model.tb_role_module
+ï»¿@model Model.tb_role_module
 <div class="main-content">
     <div class="main-content-inner">
         <div class="page-content main-content">
@@ -6,13 +6,13 @@
                 <ul class="breadcrumb">
                     <li>
                         <i class="ace-icon fa fa-home home-icon"></i>
-                        <a href="/">Ê×Ò³</a>
+                        <a href="/">é¦–é¡µ</a>
                     </li>
                     <li>
-                        <a href="/role_module/role_moduleList">È¨ÏŞÄ£¿é¹ØÏµ±í</a>
+                        <a href="/role_module/role_moduleList">æƒé™æ¨¡å—å…³ç³»è¡¨</a>
                     </li>
                     <li class="active">
-                        È¨ÏŞÄ£¿é¹ØÏµ±íÏêÇé
+                        æƒé™æ¨¡å—å…³ç³»è¡¨è¯¦æƒ…
 </li>
                 </ul>
                 <!-- /.breadcrumb -->
@@ -22,7 +22,7 @@
                 <div class="col-xs-12">
                     <div class="widget-box">
                         <div class="widget-header">
-                            <h4 class="widget-title">»ù±¾ĞÅÏ¢</h4>
+                            <h4 class="widget-title">åŸºæœ¬ä¿¡æ¯</h4>
 
                             <div class="widget-toolbar">
                                 <a href="#" data-action="collapse">
@@ -35,7 +35,7 @@
                             <div class="widget-main">
                                 	<form class="form-horizontal" role="form">
 		<input type="hidden" name="roleid" value="@Model.roleid" />
-		<div class="clearfix form-actions"><div class="col-md-offset-5 col-md-9"><button class="btn btn-info" type="button" onclick="save()"><i class="ace-icon fa fa-check bigger-110"></i>Save£¨±£´æ£©</button>
+		<div class="clearfix form-actions"><div class="col-md-offset-5 col-md-9"><button class="btn btn-info" type="button" onclick="save()"><i class="ace-icon fa fa-check bigger-110"></i>Saveï¼ˆä¿å­˜ï¼‰</button>
 	</form>
 
                             </div>
@@ -53,11 +53,11 @@
         var params = $("form").serializeArray();
         $.post("/role_module/role_moduleSave", params, function (data) {
             if (data == "True") {
-                alert("±£´æ³É¹¦£¡");
+                alert("ä¿å­˜æˆåŠŸï¼");
                 window.location.href = document.referrer;
             } else {
-                //ÏûÏ¢
-                alert("±£´æÊ§°Ü£¡");
+                //æ¶ˆæ¯
+                alert("ä¿å­˜å¤±è´¥ï¼");
             }
         });
         return false;

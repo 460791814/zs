@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// Ê¡
+	/// çœ
 	/// </summary>
 	public  class provinceController:Controller
 	{
 		D_province dprovince = new D_province();
 		/// <summary>
-		/// Ê¡ ÁĞ±í
+		/// çœ åˆ—è¡¨
 		/// </summary>
 		public ActionResult provinceList(tb_province model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// Ê¡ ±£´æ
+		/// çœ ä¿å­˜
 		/// </summary>
 		public bool provinceSave(tb_province model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// Ê¡ É¾³ı
+		/// çœ åˆ é™¤
 		/// </summary>
 		public bool provinceDelete(tb_province model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// Ê¡ ÏêÇé
+		/// çœ è¯¦æƒ…
 		/// </summary>
 		public ActionResult provinceInfo(tb_province model)
 		{

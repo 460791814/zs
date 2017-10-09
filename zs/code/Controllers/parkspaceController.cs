@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 各类车型车位数量
+	/// 鍚勭被杞﹀瀷杞︿綅鏁伴噺
 	/// </summary>
 	public  class parkspaceController:Controller
 	{
 		D_parkspace dparkspace = new D_parkspace();
 		/// <summary>
-		/// 各类车型车位数量 列表
+		/// 鍚勭被杞﹀瀷杞︿綅鏁伴噺 鍒楄〃
 		/// </summary>
 		public ActionResult parkspaceList(tb_parkspace model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 各类车型车位数量 保存
+		/// 鍚勭被杞﹀瀷杞︿綅鏁伴噺 淇濆瓨
 		/// </summary>
 		public bool parkspaceSave(tb_parkspace model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 各类车型车位数量 删除
+		/// 鍚勭被杞﹀瀷杞︿綅鏁伴噺 鍒犻櫎
 		/// </summary>
 		public bool parkspaceDelete(tb_parkspace model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 各类车型车位数量 详情
+		/// 鍚勭被杞﹀瀷杞︿綅鏁伴噺 璇︽儏
 		/// </summary>
 		public ActionResult parkspaceInfo(tb_parkspace model)
 		{

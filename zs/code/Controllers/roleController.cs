@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 角色
+	/// 瑙掕壊
 	/// </summary>
 	public  class roleController:Controller
 	{
 		D_role drole = new D_role();
 		/// <summary>
-		/// 角色 列表
+		/// 瑙掕壊 鍒楄〃
 		/// </summary>
 		public ActionResult roleList(tb_role model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 角色 保存
+		/// 瑙掕壊 淇濆瓨
 		/// </summary>
 		public bool roleSave(tb_role model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 角色 删除
+		/// 瑙掕壊 鍒犻櫎
 		/// </summary>
 		public bool roleDelete(tb_role model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 角色 详情
+		/// 瑙掕壊 璇︽儏
 		/// </summary>
 		public ActionResult roleInfo(tb_role model)
 		{

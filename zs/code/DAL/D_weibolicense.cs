@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
@@ -9,7 +9,7 @@ using Dapper;
 namespace DAL
 {
 	/// <summary>
-	/// Êı¾İ·ÃÎÊÀà:D_weibolicense
+	/// æ•°æ®è®¿é—®ç±»:D_weibolicense
 	/// </summary>
 	public partial class D_weibolicense
 	{
@@ -19,7 +19,7 @@ namespace DAL
 
 
 		/// <summary>
-		/// Ôö¼ÓÒ»ÌõÊı¾İ
+		/// å¢åŠ ä¸€æ¡æ•°æ®
 		/// </summary>
 		public bool Add(tb_weibolicense model)
 		{
@@ -43,7 +43,7 @@ namespace DAL
 		}
 
 		/// <summary>
-		/// ¸üĞÂÒ»ÌõÊı¾İ
+		/// æ›´æ–°ä¸€æ¡æ•°æ®
 		/// </summary>
 		public bool Update(tb_weibolicense model)
 		{
@@ -131,7 +131,7 @@ namespace DAL
 		}
 
 		/// <summary>
-		/// É¾³ıÒ»ÌõÊı¾İ
+		/// åˆ é™¤ä¸€æ¡æ•°æ®
 		/// </summary>
 		public bool Delete(tb_weibolicense model)
 		{
@@ -152,7 +152,7 @@ namespace DAL
 			}
 		}
 		/// <summary>
-		/// »ñµÃÊı¾İÁĞ±í
+		/// è·å¾—æ•°æ®åˆ—è¡¨
 		/// </summary>
 		public List<tb_weibolicense> GetList(tb_weibolicense model, ref int total)
 		{

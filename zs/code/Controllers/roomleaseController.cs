@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// 租赁情况
+	/// 绉熻祦鎯呭喌
 	/// </summary>
 	public  class roomleaseController:Controller
 	{
 		D_roomlease droomlease = new D_roomlease();
 		/// <summary>
-		/// 租赁情况 列表
+		/// 绉熻祦鎯呭喌 鍒楄〃
 		/// </summary>
 		public ActionResult roomleaseList(tb_roomlease model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 租赁情况 保存
+		/// 绉熻祦鎯呭喌 淇濆瓨
 		/// </summary>
 		public bool roomleaseSave(tb_roomlease model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 租赁情况 删除
+		/// 绉熻祦鎯呭喌 鍒犻櫎
 		/// </summary>
 		public bool roomleaseDelete(tb_roomlease model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// 租赁情况 详情
+		/// 绉熻祦鎯呭喌 璇︽儏
 		/// </summary>
 		public ActionResult roomleaseInfo(tb_roomlease model)
 		{

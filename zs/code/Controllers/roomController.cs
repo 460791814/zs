@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +9,13 @@ using Comp;
 namespace cnooc.property.manage.Controllers
 {
 	/// <summary>
-	/// ·¿Îİ×âÁŞ
+	/// æˆ¿å±‹ç§Ÿèµ
 	/// </summary>
 	public  class roomController:Controller
 	{
 		D_room droom = new D_room();
 		/// <summary>
-		/// ·¿Îİ×âÁŞ ÁĞ±í
+		/// æˆ¿å±‹ç§Ÿèµ åˆ—è¡¨
 		/// </summary>
 		public ActionResult roomList(tb_room model)
 		{
@@ -26,7 +26,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ·¿Îİ×âÁŞ ±£´æ
+		/// æˆ¿å±‹ç§Ÿèµ ä¿å­˜
 		/// </summary>
 		public bool roomSave(tb_room model)
 		{
@@ -43,7 +43,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ·¿Îİ×âÁŞ É¾³ı
+		/// æˆ¿å±‹ç§Ÿèµ åˆ é™¤
 		/// </summary>
 		public bool roomDelete(tb_room model)
 		{
@@ -51,7 +51,7 @@ namespace cnooc.property.manage.Controllers
 		}
 
 		/// <summary>
-		/// ·¿Îİ×âÁŞ ÏêÇé
+		/// æˆ¿å±‹ç§Ÿèµ è¯¦æƒ…
 		/// </summary>
 		public ActionResult roomInfo(tb_room model)
 		{
